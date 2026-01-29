@@ -266,18 +266,32 @@ const App: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-20 items-center">
             <div
-              className="flex items-center gap-3 cursor-pointer"
+              className="flex items-center gap-3 cursor-pointer min-w-0"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             >
-              <div className="bg-yellow-400 p-2 rounded-lg text-red-700 shadow-inner">
-                <Star fill="currentColor" size={28} />
+              {/* ICON */}
+              <div className="bg-yellow-400 p-2 rounded-lg text-red-700 shadow-inner shrink-0">
+                <Star fill="currentColor" size={26} />
               </div>
-              <div>
-                <span className="text-xl font-bold block leading-none uppercase tracking-tighter">
+
+              {/* TEXT */}
+              <div className="min-w-0 leading-tight">
+                {/* MOBILE */}
+                <span className="block sm:hidden text-sm font-extrabold uppercase tracking-tight truncate">
                   Bộ tư lệnh Thành phố Hồ Chí Minh
                 </span>
-                <span className="text-[10px] uppercase tracking-widest opacity-80 font-semibold">
-                  Ban chỉ huy Quân sự Phường Tân Sơn Nhì
+
+                {/* DESKTOP */}
+                <span className="hidden sm:block text-xl font-bold uppercase tracking-tighter leading-none">
+                  Bộ tư lệnh Thành phố Hồ Chí Minh
+                </span>
+
+                {/* SUBTITLE */}
+                <span className="block text-[10px] sm:text-[11px] uppercase tracking-widest opacity-80 font-semibold truncate">
+                  <span className="sm:hidden">Ban chỉ huy Quân sự Phường Tân Sơn Nhì</span>
+                  <span className="hidden sm:inline">
+                    Ban chỉ huy Quân sự Phường Tân Sơn Nhì
+                  </span>
                 </span>
               </div>
             </div>
@@ -997,59 +1011,52 @@ const App: React.FC = () => {
               </a>
             </div>
           </div>
-
           <div className="pt-12 border-t border-slate-300/50">
-            <div className="flex flex-col md:flex-row justify-between items-center gap-8 text-slate-500">
-              <div className="flex items-center gap-3 sm:gap-5">
-                {/* ICON */}
-                <div className="w-11 h-11 sm:w-14 sm:h-14 military-gradient rounded-xl flex items-center justify-center text-yellow-400 shadow-xl ring-4 ring-white shrink-0">
-                  <Star fill="currentColor" size={26} />
-                </div>
-
-                {/* TEXT */}
-                <div className="flex items-center gap-4 min-w-0">
-                  {/* Logo */}
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0 bg-yellow-400 rounded-xl flex items-center justify-center">
-                    <Star className="text-red-700" size={24} />
+            <div className="max-w-6xl mx-auto px-4">
+              <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-6">
+                {/* LEFT: Logo + Title */}
+                <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 text-center sm:text-left">
+                  {/* ICON */}
+                  <div className="w-12 h-12 military-gradient rounded-xl flex items-center justify-center text-yellow-400 shadow-lg ring-4 ring-white shrink-0">
+                    <Star fill="currentColor" size={24} />
                   </div>
 
-                  {/* Text */}
-                  <div className="min-w-0 flex-1">
-                    {/* MOBILE */}
-                    <p className="block sm:hidden text-white font-extrabold text-sm leading-tight tracking-tight whitespace-nowrap">
+                  {/* TEXT */}
+                  <div className="leading-tight">
+                    {/* Mobile */}
+                    <p className="block sm:hidden font-extrabold text-sm tracking-tight text-slate-900">
                       BỘ TƯ LỆNH TP. HCM
                     </p>
 
-                    {/* DESKTOP */}
-                    <p className="hidden sm:block text-white font-extrabold text-lg md:text-xl tracking-widest leading-none">
+                    {/* Desktop */}
+                    <p className="hidden sm:block font-extrabold text-lg tracking-widest text-slate-900">
                       BỘ TƯ LỆNH THÀNH PHỐ HỒ CHÍ MINH
                     </p>
 
                     {/* Subtitle */}
-                    <p className="text-[11px] sm:text-xs font-semibold uppercase tracking-tight text-white/80 whitespace-nowrap">
+                    <p className="mt-1 text-[11px] sm:text-xs font-semibold uppercase tracking-tight text-slate-600">
                       <span className="sm:hidden">BCHQS P. TÂN SƠN NHÌ</span>
                       <span className="hidden sm:inline">
                         Ban Chỉ Huy Quân Sự Phường Tân Sơn Nhì
                       </span>
                     </p>
                   </div>
-
-                  {/* Menu icon */}
-                  <button className="ml-auto text-white sm:hidden">
-                    <Menu size={26} />
-                  </button>
                 </div>
 
+                {/* RIGHT: Description */}
                 <div className="text-center md:text-right">
-                  <p className="text-sm font-bold text-slate-600 leading-relaxed mb-2">
-                    © 2026 Cổng Thông Tin Tuyển Sinh Quân Đội - Tân Sơn Nhì,
-                    Thành phố Hồ Chí Minh. <br />
+                  <p className="max-w-md text-[11px] sm:text-sm font-medium text-slate-600 leading-relaxed">
+                    © 2026 Cổng Thông Tin Tuyển Sinh Quân Đội – Tân Sơn Nhì, TP.
+                    Hồ Chí Minh.
+                    <br />
                     Vì sự nghiệp xây dựng và bảo vệ Tổ quốc Việt Nam XHCN.
                   </p>
-                  <div className="flex justify-center md:justify-end gap-4">
-                    <div className="w-2 h-2 bg-red-600 rounded-full"></div>
-                    <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
-                    <div className="w-2 h-2 bg-red-600 rounded-full"></div>
+
+                  {/* Dots */}
+                  <div className="mt-3 flex justify-center md:justify-end gap-3">
+                    <span className="w-2 h-2 bg-red-600 rounded-full"></span>
+                    <span className="w-2 h-2 bg-yellow-400 rounded-full"></span>
+                    <span className="w-2 h-2 bg-red-600 rounded-full"></span>
                   </div>
                 </div>
               </div>
