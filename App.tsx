@@ -765,9 +765,17 @@ const App: React.FC = () => {
                 <div className="inline-flex items-center gap-2 bg-red-100 text-red-700 px-4 py-1.5 rounded-full text-xs font-black mb-6 shadow-sm uppercase tracking-widest">
                   <MapPin size={14} /> Điểm tiếp nhận sơ tuyển
                 </div>
-                <h3 className="text-3xl md:text-4xl font-black text-slate-800 mb-8 leading-none tracking-tighter">
-                  Ban Chỉ Huy Quân Sự <br />
-                  <span className="text-red-600">Phường Tân Sơn Nhì</span>
+                <h3
+                  className="font-black text-slate-800 tracking-tight leading-tight mb-6
+               text-xl
+               sm:text-2xl
+               md:text-4xl"
+                >
+                  Ban Chỉ Huy Quân Sự
+                  <br />
+                  <span className="text-red-600 block sm:inline">
+                    Phường Tân Sơn Nhì
+                  </span>
                 </h3>
 
                 <div className="space-y-8">
@@ -780,8 +788,8 @@ const App: React.FC = () => {
                         Địa chỉ chính thức
                       </p>
                       <p className="text-slate-800 font-bold text-lg leading-tight">
-                        48 Tân Quý, Phường Tân Sơn Nhì, Khu phố 32, Phường Tân
-                        Sơn Nhì, TP. Hồ Chí Minh
+                        48 Tân Quý, Khu phố 32, Phường Tân Sơn Nhì, TP. Hồ Chí
+                        Minh
                       </p>
                     </div>
                   </div>
