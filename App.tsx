@@ -762,14 +762,31 @@ const App: React.FC = () => {
                 <Building2 size={150} />
               </div>
               <div className="relative z-10">
-                <div className="inline-flex items-center gap-2 bg-red-100 text-red-700 px-4 py-1.5 rounded-full text-xs font-black mb-6 shadow-sm uppercase tracking-widest">
-                  <MapPin size={14} /> Điểm tiếp nhận sơ tuyển
+                {/* BADGE */}
+                <div
+                  className="
+      inline-flex items-center gap-2
+      bg-red-100 text-red-700
+      px-3 py-1
+      rounded-full
+      text-[11px]
+      font-black
+      mb-5
+      shadow-sm
+      uppercase tracking-widest
+    "
+                >
+                  <MapPin size={13} /> Điểm tiếp nhận sơ tuyển
                 </div>
+
+                {/* TITLE */}
                 <h3
-                  className="font-black text-slate-800 tracking-tight leading-tight mb-6
-               text-xl
-               sm:text-2xl
-               md:text-4xl"
+                  className="
+      font-black text-slate-800 tracking-tight leading-tight mb-5
+      text-lg
+      sm:text-xl
+      md:text-3xl
+    "
                 >
                   Ban Chỉ Huy Quân Sự
                   <br />
@@ -778,25 +795,28 @@ const App: React.FC = () => {
                   </span>
                 </h3>
 
-                <div className="space-y-8">
-                  <div className="flex items-start gap-5">
-                    <div className="w-14 h-14 bg-white rounded-[1.25rem] shadow-md flex items-center justify-center shrink-0 text-slate-400 group-hover:text-red-600 transition-colors">
-                      <MapPin size={28} />
+                {/* CONTENT */}
+                <div className="space-y-7">
+                  {/* ADDRESS */}
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 md:w-14 md:h-14 bg-white rounded-2xl shadow-md flex items-center justify-center shrink-0 text-slate-400">
+                      <MapPin size={24} />
                     </div>
                     <div>
                       <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-1">
                         Địa chỉ chính thức
                       </p>
-                      <p className="text-slate-800 font-bold text-lg leading-tight">
-                        48 Tân Quý, Khu phố 32, Phường Tân Sơn Nhì, TP. Hồ Chí
+                      <p className="text-slate-800 font-semibold text-base md:text-lg leading-snug">
+                        48 Tân Quý, Phường Tân Sơn Nhì, TP. Hồ Chí
                         Minh
                       </p>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-5">
-                    <div className="w-14 h-14 bg-white rounded-[1.25rem] shadow-md flex items-center justify-center shrink-0 text-red-600 group-hover:scale-110 transition-transform">
-                      <Phone size={28} />
+                  {/* HOTLINE */}
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 md:w-14 md:h-14 bg-white rounded-2xl shadow-md flex items-center justify-center shrink-0 text-red-600">
+                      <Phone size={24} />
                     </div>
                     <div>
                       <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-1">
@@ -804,7 +824,15 @@ const App: React.FC = () => {
                       </p>
                       <a
                         href="tel:0775674101"
-                        className="text-3xl font-black text-slate-900 hover:text-red-600 transition-colors tracking-tight"
+                        className="
+            text-2xl
+            sm:text-3xl
+            font-black
+            text-slate-900
+            hover:text-red-600
+            transition-colors
+            tracking-tight
+          "
                       >
                         077.567.4101
                       </a>
@@ -812,14 +840,24 @@ const App: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="mt-12 pt-10 border-t border-slate-200">
+                {/* MAP LINK */}
+                <div className="mt-10 pt-8 border-t border-slate-200">
                   <a
-                    href="https://www.google.com/maps/place/48+%C4%90.T%C3%A2n+Qu%C3%BD,+T%C3%A2n+Qu%C3%BD,+T%C3%A2n+Ph%C3%BA,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh+700000,+Vietnam/@10.796862,106.614776,17z/data=!3m1!4b1!4m6!3m5!1s0x31752bf9b11b22fd:0x242eeee9bd121030!8m2!3d10.796862!4d106.6196469!16s%2Fg%2F11fsjw0g9x?entry=ttu&g_ep=EgoyMDI2MDEyNi4wIKXMDSoKLDEwMDc5MjA2N0gBUAM%3D"
+                    href="https://www.google.com/maps/place/48+%C4%90.T%C3%A2n+Qu%C3%BD,+T%C3%A2n+Qu%C3%BD,+T%C3%A2n+Ph%C3%BA,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh+700000,+Vietnam"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-slate-500 font-bold hover:text-red-600 transition-all uppercase text-sm tracking-widest"
+                    className="
+                      inline-flex items-center gap-2
+                      text-slate-500
+                      font-bold
+                      hover:text-red-600
+                      transition-colors
+                      uppercase
+                      text-xs
+                      tracking-widest
+                    "
                   >
-                    Mở chỉ đường trên Google Maps <ExternalLink size={16} />
+                    Mở chỉ đường trên Google Maps <ExternalLink size={14} />
                   </a>
                 </div>
               </div>
@@ -845,8 +883,7 @@ const App: React.FC = () => {
                       className="text-yellow-400 mt-1 shrink-0"
                     />
                     <p className="text-slate-200 font-medium">
-                      290 Cách Mạng Tháng Tám, Phường 10, Quận 3, TP. Hồ Chí
-                      Minh
+                      290 Cách Mạng Tháng Tám, Phường Vườn Lài, TP. Hồ Chí Minh
                     </p>
                   </div>
                   <p className="text-slate-400 text-sm italic border-l-2 border-yellow-400/30 pl-4 mt-4 leading-relaxed">
