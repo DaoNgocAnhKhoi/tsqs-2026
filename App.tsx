@@ -420,17 +420,33 @@ const App: React.FC = () => {
                 <p className="text-sm text-slate-500 mb-1 text-center font-medium">
                   Độ tuổi Dân sự
                 </p>
-                <div className="text-3xl sm:text-4xl font-bold text-red-600 text-center whitespace-nowrap">
-                  17 – 21
+                <div className="flex items-end justify-center gap-1">
+                  <span className="text-3xl sm:text-4xl font-extrabold text-red-600">
+                    17
+                  </span>
+                  <span className="text-xl sm:text-2xl font-bold text-red-500 mb-1">
+                    –
+                  </span>
+                  <span className="text-3xl sm:text-4xl font-extrabold text-red-600">
+                    21
+                  </span>
                 </div>
               </div>
               <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
                 <p className="text-sm text-slate-500 mb-1 text-center font-medium">
                   Độ tuổi Quân nhân
                 </p>
-                <p className="text-3xl sm:text-4xl font-bold text-green-700 text-center whitespace-nowrap">
-                  18 – 23
-                </p>
+                <div className="flex items-end justify-center gap-1">
+                  <span className="text-3xl sm:text-4xl font-extrabold text-green-700">
+                    18
+                  </span>
+                  <span className="text-xl sm:text-2xl font-bold text-green-600 mb-1">
+                    –
+                  </span>
+                  <span className="text-3xl sm:text-4xl font-extrabold text-green-700">
+                    23
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -984,30 +1000,25 @@ const App: React.FC = () => {
 
           <div className="pt-12 border-t border-slate-300/50">
             <div className="flex flex-col md:flex-row justify-between items-center gap-8 text-slate-500">
-              <div className="flex items-center gap-4 sm:gap-5 text-left">
+              <div className="flex items-center gap-3 sm:gap-5">
                 {/* ICON */}
-                <div className="w-12 h-12 sm:w-14 sm:h-14 military-gradient rounded-2xl flex items-center justify-center text-yellow-400 shadow-xl ring-4 ring-white shrink-0">
-                  <Star fill="currentColor" size={26} className="sm:hidden" />
-                  <Star
-                    fill="currentColor"
-                    size={30}
-                    className="hidden sm:block"
-                  />
+                <div className="w-11 h-11 sm:w-14 sm:h-14 military-gradient rounded-xl flex items-center justify-center text-yellow-400 shadow-xl ring-4 ring-white shrink-0">
+                  <Star fill="currentColor" size={26} />
                 </div>
 
                 {/* TEXT */}
                 <div className="min-w-0">
-                  {/* MOBILE */}
-                  <p className="sm:hidden font-black text-slate-900 uppercase text-sm leading-snug tracking-tight">
+                  {/* Mobile */}
+                  <p className="sm:hidden text-white font-extrabold text-sm leading-snug tracking-tight">
                     BỘ TƯ LỆNH TP. HCM
                   </p>
 
-                  {/* DESKTOP */}
-                  <p className="hidden sm:block font-black text-slate-900 uppercase text-base tracking-widest leading-none mb-1">
+                  {/* Desktop */}
+                  <p className="hidden sm:block text-white font-extrabold text-lg tracking-widest leading-none">
                     BỘ TƯ LỆNH THÀNH PHỐ HỒ CHÍ MINH
                   </p>
 
-                  <p className="text-[11px] sm:text-xs font-bold uppercase tracking-tight text-slate-400 truncate">
+                  <p className="text-[11px] sm:text-xs font-semibold uppercase tracking-tight text-white/70 truncate">
                     Ban chỉ huy Quân sự Phường Tân Sơn Nhì
                   </p>
                 </div>
