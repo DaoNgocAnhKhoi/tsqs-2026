@@ -721,7 +721,7 @@ const App: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             title="Đầu mối liên hệ & Hỗ trợ"
-            subtitle="Địa điểm đăng ký sơ tuyển và tư vấn trực tiếp cho thí sinh khu vực Tân Phú, TPHCM."
+            subtitle="Địa điểm đăng ký sơ tuyển và tư vấn trực tiếp cho thí sinh khu vực Tân Sơn Nhì, TPHCM."
             centered
           />
 
@@ -750,8 +750,7 @@ const App: React.FC = () => {
                         Địa chỉ chính thức
                       </p>
                       <p className="text-slate-800 font-bold text-lg leading-tight">
-                        48 Tân Quý, Phường Tân Sơn Nhì, Quận Tân Phú, TP. Hồ Chí
-                        Minh
+                        48 Tân Quý, Phường Tân Sơn Nhì, Khu phố 32, Phường Tân Sơn Nhì, TP. Hồ Chí Minh
                       </p>
                     </div>
                   </div>
@@ -999,8 +998,7 @@ const App: React.FC = () => {
               </div>
               <div className="text-center md:text-right">
                 <p className="text-sm font-bold text-slate-600 leading-relaxed mb-2">
-                  © 2026 Cổng Thông Tin Tuyển Sinh Quân Đội - Tân Sơn Nhì,
-                  TPHCM. <br />
+                  © 2026 Cổng Thông Tin Tuyển Sinh Quân Đội - Tân Sơn Nhì, Thành phố Hồ Chí Minh. <br />
                   Vì sự nghiệp xây dựng và bảo vệ Tổ quốc Việt Nam XHCN.
                 </p>
                 <div className="flex justify-center md:justify-end gap-4">
