@@ -1007,33 +1007,50 @@ const App: React.FC = () => {
                 </div>
 
                 {/* TEXT */}
-                <div className="min-w-0">
-                  {/* Mobile */}
-                  <p className="sm:hidden text-white font-extrabold text-sm leading-snug tracking-tight">
-                    BỘ TƯ LỆNH TP. HCM
-                  </p>
+                <div className="flex items-center gap-4 min-w-0">
+                  {/* Logo */}
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0 bg-yellow-400 rounded-xl flex items-center justify-center">
+                    <Star className="text-red-700" size={24} />
+                  </div>
 
-                  {/* Desktop */}
-                  <p className="hidden sm:block text-white font-extrabold text-lg tracking-widest leading-none">
-                    BỘ TƯ LỆNH THÀNH PHỐ HỒ CHÍ MINH
-                  </p>
+                  {/* Text */}
+                  <div className="min-w-0 flex-1">
+                    {/* MOBILE */}
+                    <p className="block sm:hidden text-white font-extrabold text-sm leading-tight tracking-tight whitespace-nowrap">
+                      BỘ TƯ LỆNH TP. HCM
+                    </p>
 
-                  <p className="text-[11px] sm:text-xs font-semibold uppercase tracking-tight text-white/70 truncate">
-                    Ban chỉ huy Quân sự Phường Tân Sơn Nhì
-                  </p>
+                    {/* DESKTOP */}
+                    <p className="hidden sm:block text-white font-extrabold text-lg md:text-xl tracking-widest leading-none">
+                      BỘ TƯ LỆNH THÀNH PHỐ HỒ CHÍ MINH
+                    </p>
+
+                    {/* Subtitle */}
+                    <p className="text-[11px] sm:text-xs font-semibold uppercase tracking-tight text-white/80 whitespace-nowrap">
+                      <span className="sm:hidden">BCHQS P. TÂN SƠN NHÌ</span>
+                      <span className="hidden sm:inline">
+                        Ban Chỉ Huy Quân Sự Phường Tân Sơn Nhì
+                      </span>
+                    </p>
+                  </div>
+
+                  {/* Menu icon */}
+                  <button className="ml-auto text-white sm:hidden">
+                    <Menu size={26} />
+                  </button>
                 </div>
-              </div>
 
-              <div className="text-center md:text-right">
-                <p className="text-sm font-bold text-slate-600 leading-relaxed mb-2">
-                  © 2026 Cổng Thông Tin Tuyển Sinh Quân Đội - Tân Sơn Nhì, Thành
-                  phố Hồ Chí Minh. <br />
-                  Vì sự nghiệp xây dựng và bảo vệ Tổ quốc Việt Nam XHCN.
-                </p>
-                <div className="flex justify-center md:justify-end gap-4">
-                  <div className="w-2 h-2 bg-red-600 rounded-full"></div>
-                  <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
-                  <div className="w-2 h-2 bg-red-600 rounded-full"></div>
+                <div className="text-center md:text-right">
+                  <p className="text-sm font-bold text-slate-600 leading-relaxed mb-2">
+                    © 2026 Cổng Thông Tin Tuyển Sinh Quân Đội - Tân Sơn Nhì,
+                    Thành phố Hồ Chí Minh. <br />
+                    Vì sự nghiệp xây dựng và bảo vệ Tổ quốc Việt Nam XHCN.
+                  </p>
+                  <div className="flex justify-center md:justify-end gap-4">
+                    <div className="w-2 h-2 bg-red-600 rounded-full"></div>
+                    <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                    <div className="w-2 h-2 bg-red-600 rounded-full"></div>
+                  </div>
                 </div>
               </div>
             </div>
