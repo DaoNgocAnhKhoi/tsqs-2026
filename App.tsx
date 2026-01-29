@@ -278,7 +278,7 @@ const App: React.FC = () => {
               <div className="min-w-0 leading-tight">
                 {/* MOBILE */}
                 <span className="block sm:hidden text-sm font-extrabold uppercase tracking-tight truncate">
-                  Bộ tư lệnh Thành phố Hồ Chí Minh
+                  BỘ TƯ LỆNH TP. HCM
                 </span>
 
                 {/* DESKTOP */}
@@ -288,7 +288,7 @@ const App: React.FC = () => {
 
                 {/* SUBTITLE */}
                 <span className="block text-[10px] sm:text-[11px] uppercase tracking-widest opacity-80 font-semibold truncate">
-                  <span className="sm:hidden">Ban chỉ huy Quân sự Phường Tân Sơn Nhì</span>
+                  <span className="sm:hidden">BCHQS P. TÂN SƠN NHÌ</span>
                   <span className="hidden sm:inline">
                     Ban chỉ huy Quân sự Phường Tân Sơn Nhì
                   </span>
