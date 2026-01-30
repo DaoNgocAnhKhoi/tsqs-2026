@@ -287,7 +287,7 @@ const App: React.FC = () => {
                 </span>
 
                 {/* SUBTITLE */}
-                <span className="block text-[10px] sm:text-[11px] uppercase tracking-widest opacity-80 font-semibold truncate">
+                <span className="mt-2 block text-[10px] sm:text-[11px] uppercase tracking-widest opacity-80 font-semibold truncate">
                   <span className="sm:hidden">BCHQS P. TÂN SƠN NHÌ</span>
                   <span className="hidden sm:inline">
                     Ban chỉ huy Quân sự Phường Tân Sơn Nhì
