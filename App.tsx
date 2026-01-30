@@ -213,26 +213,44 @@ const SectionHeader = ({
   title,
   subtitle,
   centered = false,
+  variant = "dark", // "dark" | "light"
 }: {
   title: string;
   subtitle?: string;
   centered?: boolean;
-}) => (
-  <div className={`mb-12 ${centered ? "text-center" : ""}`}>
-    <div
-      className={`flex items-center gap-3 ${centered ? "justify-center" : ""} mb-4`}
-    >
-      <div className="h-1 w-12 bg-red-600 rounded-full"></div>
-      <h2 className="text-3xl font-extrabold text-slate-800 uppercase tracking-tight">
-        {title}
-      </h2>
-      <div className="h-1 w-12 bg-red-600 rounded-full"></div>
+  variant?: "dark" | "light";
+}) => {
+  const titleColor = variant === "light" ? "text-white" : "text-slate-800";
+
+  const subtitleColor =
+    variant === "light" ? "text-slate-200" : "text-slate-600";
+
+  return (
+    <div className={`mb-12 ${centered ? "text-center" : ""}`}>
+      <div
+        className={`flex items-center gap-3 ${
+          centered ? "justify-center" : ""
+        } mb-4`}
+      >
+        <div className="h-1 w-12 bg-red-600 rounded-full"></div>
+
+        <h2
+          className={`text-3xl font-extrabold uppercase tracking-tight ${titleColor}`}
+        >
+          {title}
+        </h2>
+
+        <div className="h-1 w-12 bg-red-600 rounded-full"></div>
+      </div>
+
+      {subtitle && (
+        <p className={`text-lg max-w-2xl mx-auto ${subtitleColor}`}>
+          {subtitle}
+        </p>
+      )}
     </div>
-    {subtitle && (
-      <p className="text-slate-600 text-lg max-w-2xl mx-auto">{subtitle}</p>
-    )}
-  </div>
-);
+  );
+};
 
 const NavItem = ({
   href,
@@ -508,8 +526,9 @@ const App: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <SectionHeader
             title="Đăng ký Sơ tuyển trực tuyến"
-            subtitle="Quét mã QR hoặc nhấn nút bên dưới để kê khai thông tin lý lịch sơ tuyển nhanh chóng."
+            subtitle="Quét mã QR hoặc nhấn nút bên dưới để kê nh thông tin lý lịch sơ tuyển nhanh chóng."
             centered
+            variant="light"
           />
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -535,15 +554,15 @@ const App: React.FC = () => {
 
               <div className="flex gap-4 p-6 rounded-2xl bg-red-600/20 border border-red-500/30">
                 <AlertTriangle className="text-red-400 shrink-0" size={24} />
-                <p className="text-sm text-slate-200">
+                <p className="text-sm text-slate-200 leading-loose">
                   <span className="font-bold text-white uppercase">
                     Quan trọng:
                   </span>{" "}
-                  Việc đăng ký trực tuyến là bước hỗ trợ kê khai. Thí sinh{" "}
+                  Việc đăng ký trực tuyến là bước hỗ trợ kê khai. Thí sinh phải đến {" "}
                   <span className="text-yellow-400 underline underline-offset-4">
-                    phải
+                  Ban CHQS Phường Tân Sơn Nhì 
                   </span>{" "}
-                  đến Ban CHQS Phường Tân Sơn Nhì để nhận hồ sơ và kiểm tra sức
+                  để nhận hồ sơ và kiểm tra sức
                   khỏe.
                 </p>
               </div>
@@ -686,6 +705,7 @@ const App: React.FC = () => {
             title="Lộ trình Tuyển sinh chi tiết"
             subtitle="Cần tuân thủ tuyệt đối các mốc thời gian và quy trình để không mất cơ hội."
             centered
+            variant="light"
           />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
@@ -750,8 +770,8 @@ const App: React.FC = () => {
       <section id="contact" className="py-24 bg-white relative scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
-            title="Đầu mối liên hệ & Hỗ trợ"
-            subtitle="Địa điểm đăng ký sơ tuyển và tư vấn trực tiếp cho thí sinh khu vực Tân Sơn Nhì, TPHCM."
+            title="Thông tin liên hệ & Hỗ trợ"
+            subtitle="Địa điểm đăng ký sơ tuyển và tư vấn trực tiếp cho thí sinh khu vực Tân Sơn Nhì, TP. Hồ Chí Minh."
             centered
           />
 
@@ -807,8 +827,7 @@ const App: React.FC = () => {
                         Địa chỉ chính thức
                       </p>
                       <p className="text-slate-800 font-semibold text-base md:text-lg leading-snug">
-                        48 Tân Quý, Phường Tân Sơn Nhì, TP. Hồ Chí
-                        Minh
+                        48 Tân Quý, Phường Tân Sơn Nhì, TP. Hồ Chí Minh
                       </p>
                     </div>
                   </div>
@@ -937,16 +956,20 @@ const App: React.FC = () => {
                     <div
                       key={group.code}
                       className={`
-                        bg-white rounded-2xl p-6 shadow
-                        ${isLastOdd ? "md:col-span-2" : ""}
-                      `}
+    bg-white
+    rounded-2xl
+    p-6
+    shadow-sm
+    border border-slate-200
+    ${isLastOdd ? "md:col-span-2" : ""}
+  `}
                     >
                       {/* Header */}
                       <div className="flex items-center gap-4 mb-3">
-                        <span className="bg-red-500 text-white font-bold px-3 py-1 rounded-full">
+                        <span className="bg-red-700 text-white font-bold px-3 py-1 rounded-full text-sm">
                           {group.code}
                         </span>
-                        <h3 className="font-semibold text-slate-800">
+                        <h3 className="font-semibold text-slate-900 tracking-tight">
                           {group.subjects}
                         </h3>
                       </div>
@@ -954,12 +977,30 @@ const App: React.FC = () => {
                       {/* Targets */}
                       <div className="flex flex-wrap gap-2">
                         {group.target.map((t) => (
-                          <span
-                            key={t}
-                            className="bg-green-100 text-green-700 text-sm px-3 py-1 rounded-full font-medium"
-                          >
-                            {t}
-                          </span>
+<span
+  key={t}
+  className="
+    bg-stone-200
+    text-stone-900
+    text-sm
+    px-3
+    py-1
+    rounded-full
+    font-medium
+    border border-stone-300
+    hover:bg-stone-300
+    transition-colors
+  "
+>
+  {t}
+</span>
+
+
+
+
+
+
+
                         ))}
                       </div>
                     </div>
