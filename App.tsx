@@ -526,7 +526,7 @@ const App: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <SectionHeader
             title="Đăng ký Sơ tuyển trực tuyến"
-            subtitle="Quét mã QR hoặc nhấn nút bên dưới để kê nh thông tin lý lịch sơ tuyển nhanh chóng."
+            subtitle="Quét mã QR hoặc nhấn nút bên dưới để nhập thông tin lý lịch sơ tuyển nhanh chóng."
             centered
             variant="light"
           />
