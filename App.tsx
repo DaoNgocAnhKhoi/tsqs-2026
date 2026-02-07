@@ -23,6 +23,16 @@ import {
   Heart,
 } from "lucide-react";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore from "swiper";
+import { Autoplay, Pagination, EffectFade } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/effect-fade";
+import "swiper/css/pagination";
+
+SwiperCore.use([Autoplay, Pagination, EffectFade]);
+
+
 // --- TYPES ---
 interface Benefit {
   title: string;
@@ -115,7 +125,7 @@ const ADMISSION_PROCESS: AdmissionStep[] = [
     step: 1,
     title: "Sơ tuyển",
     time: "25/3 – trước 20/5",
-    location: "Ban CHQS xã/phường/thị trấn",
+    location: "Tại Ban CHQS Phường Tân Sơn Nhì",
     content: [
       "Nộp hồ sơ lý lịch",
       "Khám sức khỏe quân sự",
@@ -214,40 +224,53 @@ const SectionHeader = ({
   subtitle,
   centered = false,
   variant = "dark", // "dark" | "light"
+  backgroundImage, // chỉ 1 ảnh: Trống Đồng hoặc Quốc kỳ
 }: {
   title: string;
   subtitle?: string;
   centered?: boolean;
   variant?: "dark" | "light";
+  backgroundImage?: string; // đường dẫn ảnh mờ phía sau
 }) => {
   const titleColor = variant === "light" ? "text-white" : "text-slate-800";
-
   const subtitleColor =
     variant === "light" ? "text-slate-200" : "text-slate-600";
 
   return (
-    <div className={`mb-12 ${centered ? "text-center" : ""}`}>
-      <div
-        className={`flex items-center gap-3 ${
-          centered ? "justify-center" : ""
-        } mb-4`}
-      >
-        <div className="h-1 w-12 bg-red-600 rounded-full"></div>
-
-        <h2
-          className={`text-3xl font-extrabold uppercase tracking-tight ${titleColor}`}
-        >
-          {title}
-        </h2>
-
-        <div className="h-1 w-12 bg-red-600 rounded-full"></div>
-      </div>
-
-      {subtitle && (
-        <p className={`text-lg max-w-2xl mx-auto ${subtitleColor}`}>
-          {subtitle}
-        </p>
+    <div className="relative mb-12">
+      {/* Background image mờ */}
+      {backgroundImage && (
+        <img
+          src={backgroundImage}
+          alt="Background"
+          className="absolute inset-0 m-auto w-48 h-48 opacity-10 pointer-events-none"
+        />
       )}
+
+      {/* Nội dung */}
+      <div className={`${centered ? "text-center" : ""} relative`}>
+        <div
+          className={`flex items-center gap-3 ${
+            centered ? "justify-center" : ""
+          } mb-4`}
+        >
+          <div className="h-1 w-12 bg-red-600 rounded-full"></div>
+
+          <h2
+            className={`text-3xl font-extrabold uppercase tracking-tight ${titleColor}`}
+          >
+            {title}
+          </h2>
+
+          <div className="h-1 w-12 bg-red-600 rounded-full"></div>
+        </div>
+
+        {subtitle && (
+          <p className={`text-lg max-w-2xl mx-auto ${subtitleColor}`}>
+            {subtitle}
+          </p>
+        )}
+      </div>
     </div>
   );
 };
@@ -381,10 +404,11 @@ const App: React.FC = () => {
                 Vinh quang người chiến sĩ
               </span>
             </div>
-            <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 leading-[1.1]">
+            <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-5 leading-tight md:leading-[1.25] lg:leading-[1.35]">
               Cổng Thông Tin <br />
               <span className="text-yellow-400">Tuyển Sinh Quân Đội</span>
             </h1>
+
             <p className="text-lg text-slate-200 mb-10 max-w-xl leading-relaxed">
               Trở thành Sĩ quan Quân đội Nhân dân Việt Nam - Ước mơ của thế hệ
               trẻ. Miễn 100% học phí, chế độ đãi ngộ vượt trội và tương lai nghề
@@ -538,7 +562,7 @@ const App: React.FC = () => {
                   <MousePointer2 /> Bấm sơ tuyển ngay
                 </h3>
                 <p className="text-slate-300 mb-8 leading-relaxed">
-                  Hệ thống quản lý tuyển sinh quân sự cho phép thí sinh khai báo
+                  Hệ thống quản lý tuyển sinh quân sự cho phép thí sinh cung cấp
                   thông tin trực tuyến trước khi đến nộp hồ sơ giấy tại Ban Chỉ
                   Huy Quân Sự địa phương.
                 </p>
@@ -558,12 +582,12 @@ const App: React.FC = () => {
                   <span className="font-bold text-white uppercase">
                     Quan trọng:
                   </span>{" "}
-                  Việc đăng ký trực tuyến là bước hỗ trợ kê khai. Thí sinh phải đến {" "}
+                  Việc đăng ký trực tuyến là bước hỗ trợ đăng ký sơ tuyển. Thí
+                  sinh phải đến{" "}
                   <span className="text-yellow-400 underline underline-offset-4">
-                  Ban CHQS Phường Tân Sơn Nhì 
+                    Ban CHQS Phường Tân Sơn Nhì
                   </span>{" "}
-                  để nhận hồ sơ và kiểm tra sức
-                  khỏe.
+                  để nhận hồ sơ và kiểm tra sức khỏe.
                 </p>
               </div>
             </div>
@@ -853,7 +877,7 @@ const App: React.FC = () => {
             tracking-tight
           "
                       >
-                        077.567.4101
+                        028.3810.9565
                       </a>
                     </div>
                   </div>
@@ -922,7 +946,7 @@ const App: React.FC = () => {
                   </h4>
                   <p className="text-sm font-bold text-red-800/80 leading-snug">
                     Đừng ngần ngại, hãy đến trực tiếp Ban CHQS Phường để được
-                    phát hồ sơ và hướng dẫn miễn phí.
+                    đăng ký hồ sơ và hướng dẫn miễn phí.
                   </p>
                 </div>
               </div>
@@ -977,9 +1001,9 @@ const App: React.FC = () => {
                       {/* Targets */}
                       <div className="flex flex-wrap gap-2">
                         {group.target.map((t) => (
-<span
-  key={t}
-  className="
+                          <span
+                            key={t}
+                            className="
     bg-stone-200
     text-stone-900
     text-sm
@@ -991,16 +1015,9 @@ const App: React.FC = () => {
     hover:bg-stone-300
     transition-colors
   "
->
-  {t}
-</span>
-
-
-
-
-
-
-
+                          >
+                            {t}
+                          </span>
                         ))}
                       </div>
                     </div>
@@ -1129,17 +1146,21 @@ const App: React.FC = () => {
                   </div>
                 </div>
 
-                {/* RIGHT: Description */}
-                <div className="text-center md:text-right">
-                  <p className="max-w-md text-[11px] sm:text-sm font-medium text-slate-600 leading-relaxed">
+                {/* RIGHT */}
+                <div className="flex flex-col items-center md:items-end text-center md:text-right gap-2">
+                  {/* Copyright */}
+                  <p className="text-xs sm:text-sm font-semibold text-slate-700">
                     © 2026 Cổng Thông Tin Tuyển Sinh Quân Đội – Tân Sơn Nhì, TP.
-                    Hồ Chí Minh.
-                    <br />
-                    Vì sự nghiệp xây dựng và bảo vệ Tổ quốc Việt Nam XHCN.
+                    Hồ Chí Minh
+                  </p>
+
+                  {/* Slogan */}
+                  <p className="text-[11px] sm:text-xs text-slate-600">
+                    Vì sự nghiệp xây dựng và bảo vệ Tổ quốc Việt Nam XHCN
                   </p>
 
                   {/* Dots */}
-                  <div className="mt-3 flex justify-center md:justify-end gap-3">
+                  <div className="mt-2 flex gap-3">
                     <span className="w-2 h-2 bg-red-600 rounded-full"></span>
                     <span className="w-2 h-2 bg-yellow-400 rounded-full"></span>
                     <span className="w-2 h-2 bg-red-600 rounded-full"></span>
@@ -1150,6 +1171,20 @@ const App: React.FC = () => {
           </div>
         </div>
       </footer>
+      {/* Bottom Contact Strip */}
+      <div className="border-t border-slate-700 bg-slate-900">
+        <div className="max-w-6xl mx-auto px-4 py-3 text-center">
+          <p className="text-xs sm:text-sm text-slate-300 tracking-wide">
+            Mọi đóng góp ý kiến xin gửi về email{" "}
+            <a
+              href="mailto:daongocanhkhoi@gmail.com"
+              className="text-blue-400 font-semibold underline hover:text-blue-300"
+            >
+              daongocanhkhoi@gmail.com
+            </a>
+          </p>
+        </div>
+      </div>
     </div>
   );
 };

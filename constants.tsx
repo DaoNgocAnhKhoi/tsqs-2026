@@ -50,7 +50,7 @@ export const ADMISSION_PROCESS: AdmissionStep[] = [
     step: 1,
     title: "Sơ tuyển",
     time: "25/3 – trước 20/5",
-    location: "Ban TSQS xã/phường hoặc đơn vị cấp trung đoàn",
+    location: "Ban TSQS xã/phường/đặc khu hoặc đơn vị cấp trung đoàn",
     content: ["Nộp hồ sơ lý lịch", "Khám sức khỏe quân sự", "Viết phiếu đăng ký sơ tuyển"]
   },
   {
