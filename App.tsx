@@ -19,205 +19,20 @@ import {
   ExternalLink,
   QrCode,
   MousePointer2,
-  Award,
+  Cpu,
   Heart,
+  Stethoscope,
 } from "lucide-react";
-
+import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore from "swiper";
 import { Autoplay, Pagination, EffectFade } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/effect-fade";
-import "swiper/css/pagination";
-
+import { UniversityFullDetail } from "./types";
+import { UNIVERSITY_DETAILS } from "./constants";
+import UniversityDetailView from "./components/UniversityDetailView";
 SwiperCore.use([Autoplay, Pagination, EffectFade]);
 
-
-// --- TYPES ---
-interface Benefit {
-  title: string;
-  description: string;
-  icon: any;
-}
-
-interface School {
-  name: string;
-  category: "Academy" | "College";
-  note?: string;
-}
-
-interface AdmissionStep {
-  step: number;
-  title: string;
-  time?: string;
-  content: string[];
-  location?: string;
-}
-
-interface ExamGroup {
-  code: string;
-  subjects: string;
-  target?: Array<string>;
-}
-
-// --- CONSTANTS ---
-const BENEFITS: Benefit[] = [
-  {
-    title: "Chế độ đãi ngộ",
-    description:
-      "Ăn, ở, quân trang hoàn toàn miễn phí trong suốt quá trình học tập.",
-    icon: Shield,
-  },
-  {
-    title: "Học phí & Phụ cấp",
-    description:
-      "Không phải đóng học phí, nhận phụ cấp sinh hoạt phí hàng tháng.",
-    icon: Heart,
-  },
-  {
-    title: "Hỗ trợ Gia đình",
-    description:
-      "Gia đình được hỗ trợ BHYT và các khoản trợ cấp khó khăn theo quy định.",
-    icon: Users,
-  },
-  {
-    title: "Đầu ra đảm bảo",
-    description:
-      "Tốt nghiệp được phong quân hàm sĩ quan và phân công công tác ngay.",
-    icon: Award,
-  },
-];
-
-const SCHOOLS: School[] = [
-  { name: "Học viện Kỹ thuật Quân sự", category: "Academy" },
-  { name: "Học viện Quân y", category: "Academy" },
-  { name: "Học viện Hậu cần", category: "Academy" },
-  { name: "Học viện Phòng không - Không quân", category: "Academy" },
-  { name: "Học viện Hải quân", category: "Academy" },
-  { name: "Học viện Biên phòng", category: "Academy" },
-  { name: "Học viện Khoa học quân sự", category: "Academy" },
-  {
-    name: "Trường Sĩ quan Lục quân 1",
-    category: "Academy",
-    note: "Quảng Bình trở ra Bắc",
-  },
-  {
-    name: "Trường Sĩ quan Lục quân 2",
-    category: "Academy",
-    note: "Quảng Trị trở vào Nam",
-  },
-  { name: "Trường Sĩ quan Thông tin", category: "Academy" },
-  { name: "Trường Sĩ quan Chính trị", category: "Academy" },
-  { name: "Trường Sĩ quan Công binh", category: "Academy" },
-  { name: "Trường Sĩ quan Đặc công", category: "Academy" },
-  { name: "Trường Sĩ quan Pháo binh", category: "Academy" },
-  { name: "Trường Sĩ quan Tăng thiết giáp", category: "Academy" },
-  { name: "Trường Sĩ quan Phòng hóa", category: "Academy" },
-  {
-    name: "Trường Sĩ quan Không quân",
-    category: "College",
-    note: "Kỹ thuật hàng không",
-  },
-];
-
-const ADMISSION_PROCESS: AdmissionStep[] = [
-  {
-    step: 1,
-    title: "Sơ tuyển",
-    time: "25/3 – trước 20/5",
-    location: "Tại Ban CHQS Phường Tân Sơn Nhì",
-    content: [
-      "Nộp hồ sơ lý lịch",
-      "Khám sức khỏe quân sự",
-      "Viết phiếu đăng ký sơ tuyển",
-    ],
-  },
-  {
-    step: 2,
-    title: "Thi tốt nghiệp THPT",
-    content: [
-      "Sử dụng kết quả thi THPT quốc gia để xét tuyển vào các trường quân đội",
-    ],
-  },
-  {
-    step: 3,
-    title: "Đăng ký xét tuyển",
-    content: [
-      "BẮT BUỘC: Nguyện vọng 1 là trường Quân đội",
-      "Chỉ chọn 1 khối: Quân đội hoặc Công an",
-    ],
-  },
-];
-
-const EXAM_GROUPS: ExamGroup[] = [
-  {
-    code: "A00",
-    subjects: "Toán, Lý, Hóa",
-    target: [
-      "HV Kỹ thuật QS",
-      "HV Hậu cần",
-      "HV PK-KQ",
-      "HV Hải quân",
-      "HV Biên phòng",
-      "SQ Lục quân 1",
-      "SQ Lục quân 2",
-      "SQ Thông tin",
-      "SQ Công binh",
-      "SQ Đặc công",
-      "SQ Pháo binh",
-      "SQ Tăng thiết giáp",
-      "SQ Phòng hóa",
-      "SQ Không quân",
-    ],
-  },
-  {
-    code: "A01",
-    subjects: "Toán, Lý, Tiếng Anh",
-    target: [
-      "HV Kỹ thuật QS",
-      "HV Hậu cần",
-      "HV PK-KQ",
-      "HV Hải quân",
-      "HV Biên phòng",
-      "SQ Lục quân 1",
-      "SQ Lục quân 2",
-      "SQ Thông tin",
-      "SQ Công binh",
-      "SQ Đặc công",
-      "SQ Pháo binh",
-      "SQ Tăng thiết giáp",
-      "SQ Phòng hóa",
-      "SQ Không quân",
-    ],
-  },
-
-  {
-    code: "B00",
-    subjects: "Toán, Hóa, Sinh",
-    target: ["Học viện Quân y"],
-  },
-  {
-    code: "C00",
-    subjects: "Ngữ văn, Lịch sử, Địa lý",
-    target: ["Học viện Biên phòng", "Trường Sĩ quan Chính trị"],
-  },
-  {
-    code: "D01",
-    subjects: "Toán, Ngữ văn, Tiếng Anh",
-    target: ["Học viện Khoa học Quân sự", "Trường Sĩ quan Chính trị"],
-  },
-  {
-    code: "D02",
-    subjects: "Toán, Ngữ văn, Tiếng Nga",
-    target: ["Học viện Khoa học Quân sự"],
-  },
-  {
-    code: "D04",
-    subjects: "Toán, Ngữ văn, Tiếng Trung",
-    target: ["Học viện Khoa học Quân sự"],
-  },
-];
-
+import { BENEFITS, SCHOOLS, ADMISSION_PROCESS, EXAM_GROUPS } from "./constants";
 // --- COMPONENTS ---
 const SectionHeader = ({
   title,
@@ -297,8 +112,18 @@ const NavItem = ({
 
 const App: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const [selectedUniversity, setSelectedUniversity] =
+    useState<UniversityFullDetail | null>(null);
   // Smooth scroll logic is handled by standard HTML id anchors and CSS scroll-behavior: smooth in index.html
+
+  const handleSchoolClick = (id: string | undefined) => {
+    if (id && UNIVERSITY_DETAILS[id]) {
+      setSelectedUniversity(UNIVERSITY_DETAILS[id]);
+    } else {
+      // For demo, if no data exists, just alert or do nothing
+      console.log("Dữ liệu chi tiết trường này đang được cập nhật...");
+    }
+  };
 
   return (
     <div className="min-h-screen bg-slate-50 overflow-x-hidden selection:bg-yellow-400 selection:text-red-900">
@@ -526,7 +351,7 @@ const App: React.FC = () => {
                   className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all hover:-translate-y-2 flex flex-col items-center text-center group"
                 >
                   <div className="w-16 h-16 bg-red-50 text-red-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-red-600 group-hover:text-white transition-colors">
-                    <Icon size={32} />
+                    <Icon />
                   </div>
                   <h4 className="text-xl font-bold text-slate-800 mb-3">
                     {benefit.title}
@@ -623,7 +448,7 @@ const App: React.FC = () => {
       {/* Schools List Section */}
       <section
         id="schools"
-        className="py-24 bg-white overflow-hidden scroll-mt-20"
+        className="py-24 bg-gradient-to-b from-white to-slate-50 scroll-mt-20"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
@@ -632,98 +457,287 @@ const App: React.FC = () => {
             centered
           />
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div>
-              <div className="flex items-center gap-3 mb-8 bg-green-50 p-4 rounded-2xl border border-green-100">
-                <div className="w-10 h-10 bg-green-600 text-white rounded-xl flex items-center justify-center shadow-md">
-                  <GraduationCap size={24} />
-                </div>
-                <h3 className="text-xl font-bold text-green-900 uppercase">
-                  Hệ Đại học Quân sự
-                </h3>
+          {/* ================= HỆ ĐẠI HỌC ================= */}
+          <div className="mb-16">
+            <div className="flex items-center gap-3 mb-8 bg-green-50 p-4 rounded-2xl border border-green-100 w-fit">
+              <div className="w-10 h-10 bg-green-600 text-white rounded-xl flex items-center justify-center shadow-md">
+                <GraduationCap size={22} />
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {SCHOOLS.filter((s) => s.category === "Academy").map(
-                  (school, idx) => (
-                    <div
-                      key={idx}
-                      className="group p-4 rounded-xl border border-slate-100 bg-slate-50 hover:bg-green-600 hover:text-white transition-all cursor-default shadow-sm hover:shadow-md"
-                    >
-                      <p className="font-bold text-sm mb-1">{school.name}</p>
-                      {school.note && (
-                        <p className="text-[11px] opacity-70 italic group-hover:text-green-50">
-                          {school.note}
-                        </p>
-                      )}
-                    </div>
-                  ),
-                )}
-              </div>
+              <h3 className="text-lg font-bold text-green-900 uppercase tracking-wide">
+                Hệ Đại học Quân sự
+              </h3>
             </div>
 
-            <div className="space-y-8">
-              <div>
-                <div className="flex items-center gap-3 mb-6 bg-blue-50 p-4 rounded-2xl border border-blue-100">
-                  <div className="w-10 h-10 bg-blue-600 text-white rounded-xl flex items-center justify-center shadow-md">
-                    <Info size={24} />
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {SCHOOLS.filter((s) => s.category === "Academy").map((school) => (
+                <motion.div
+                  key={school.id}
+                  onClick={() => handleSchoolClick(school.id)}
+                  whileHover={{ y: -5 }}
+                  className="p-5 rounded-2xl bg-white border border-slate-200
+            hover:border-green-600 hover:shadow-lg
+            transition-all cursor-pointer h-full"
+                >
+                  <p className="font-semibold text-slate-800 text-sm leading-snug">
+                    {school.name}
+                  </p>
+
+                  {school.note && (
+                    <p className="text-xs text-slate-500 mt-2 italic">
+                      {school.note}
+                    </p>
+                  )}
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* ================= HỆ CAO ĐẲNG ================= */}
+          <div className="mb-16">
+            <div className="flex items-center gap-3 mb-8 bg-blue-50 p-4 rounded-2xl border border-blue-100 w-fit">
+              <div className="w-10 h-10 bg-blue-600 text-white rounded-xl flex items-center justify-center shadow-md">
+                <Info size={22} />
+              </div>
+              <h3 className="text-lg font-bold text-blue-900 uppercase tracking-wide">
+                Hệ Cao đẳng
+              </h3>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {SCHOOLS.filter((s) => s.category === "College").map((school) => (
+                <motion.div
+                  key={school.id}
+                  whileHover={{ y: -5 }}
+                  className="p-5 rounded-2xl bg-white border border-blue-100
+            hover:border-blue-600 hover:shadow-lg
+            transition-all cursor-pointer flex items-start gap-3"
+                >
+                  <div className="bg-blue-600/10 p-2 rounded-lg text-blue-600">
+                    <Star size={20} fill="currentColor" />
                   </div>
-                  <h3 className="text-xl font-bold text-blue-900 uppercase">
-                    Hệ Cao đẳng
-                  </h3>
-                </div>
-                <div className="p-5 rounded-2xl border border-blue-100 bg-white shadow-lg flex items-start gap-4">
-                  <div className="bg-blue-600/10 p-3 rounded-xl text-blue-600">
-                    <Star size={24} fill="currentColor" />
-                  </div>
+
                   <div>
-                    <p className="font-bold text-blue-800 text-lg leading-none mb-1">
-                      Trường Sĩ quan Không quân
+                    <p className="font-semibold text-slate-800 text-sm leading-snug">
+                      {school.name}
                     </p>
-                    <p className="text-sm text-slate-500 font-medium">
-                      Chuyên ngành đào tạo Kỹ thuật hàng không bậc Cao đẳng.
-                    </p>
+
+                    {school.note && (
+                      <p className="text-xs text-slate-500 mt-2 italic">
+                        {school.note}
+                      </p>
+                    )}
                   </div>
-                </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* ================= TIÊU CHUẨN SỨC KHỎE ================= */}
+      <section
+        id="health"
+        className="py-24 bg-white scroll-mt-20 border-t border-slate-100"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeader
+            title="Tiêu chuẩn Sức khỏe Tuyển sinh"
+            subtitle="Áp dụng theo Thông tư 105/2023/TT-BQP và 106/2025/TT-BQP."
+            centered
+          />
+
+          {/* ================= CHỈ HUY - CHÍNH TRỊ - HẬU CẦN ================= */}
+          <div className="mb-20">
+            <div className="flex items-center gap-3 mb-8 bg-green-50 p-4 rounded-2xl border border-green-100 w-fit">
+              <Shield size={22} className="text-green-600" />
+              <h3 className="text-lg font-bold text-green-900 uppercase tracking-wide">
+                Khối Chỉ huy – Chính trị – Hậu cần
+              </h3>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* ===== NAM ===== */}
+              <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm h-full">
+                <h4 className="font-bold text-slate-800 mb-4 text-base uppercase">
+                  Nam
+                </h4>
+
+                <ul className="space-y-3 text-sm text-slate-700 leading-relaxed">
+                  <li>• BMI ≤ 30</li>
+                  <li>• Chiều cao ≥ 1m65</li>
+                  <li>• Cân nặng ≥ 50kg</li>
+                  <li>• Không tuyển thí sinh cận thị</li>
+                </ul>
               </div>
 
-              <div className="p-8 rounded-[2.5rem] bg-yellow-50 border-2 border-yellow-200 relative shadow-sm">
-                <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
-                  <MapPin size={100} />
-                </div>
-                <h4 className="text-xl font-bold text-yellow-900 mb-6 flex items-center gap-2 uppercase tracking-tight">
-                  <MapPin className="text-yellow-600" /> Phân vùng Tuyển sinh
+              {/* ===== NỮ ===== */}
+              <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm h-full">
+                <h4 className="font-bold text-slate-800 mb-4 text-base uppercase">
+                  Nữ
                 </h4>
-                <div className="space-y-6">
-                  <div className="border-l-4 border-yellow-400 pl-4">
-                    <p className="font-black text-yellow-800 text-sm uppercase">
-                      Trường Lục quân 1
-                    </p>
-                    <p className="text-slate-600 text-sm font-medium">
-                      Thí sinh hộ khẩu từ tỉnh Quảng Bình trở ra phía Bắc.
-                    </p>
+
+                <ul className="space-y-3 text-sm text-slate-700 leading-relaxed">
+                  <li>• Đạt Điểm 1 theo Thông tư 105</li>
+                  <li>• Chiều cao ≥ 1m54</li>
+                  <li>• Cân nặng ≥ 48kg</li>
+                  <li>• Không tuyển thí sinh cận thị</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* ================= CHUYÊN MÔN KỸ THUẬT ================= */}
+          <div className="mb-20">
+            <div className="flex items-center gap-3 mb-8 bg-blue-50 p-4 rounded-2xl border border-blue-100 w-fit">
+              <Cpu size={22} className="text-blue-600" />
+              <h3 className="text-lg font-bold text-blue-900 uppercase tracking-wide">
+                Khối Chuyên môn kỹ thuật
+              </h3>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* ===== NAM ===== */}
+              <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm h-full">
+                <h4 className="font-bold text-slate-800 mb-4 text-base uppercase">
+                  Nam
+                </h4>
+
+                <ul className="space-y-3 text-sm text-slate-700 leading-relaxed">
+                  <li>• BMI ≤ 30</li>
+                  <li>• Chiều cao ≥ 1m63</li>
+                  <li>• Cân nặng ≥ 50kg</li>
+                  <li>• Được tuyển cận ≤ 3 độ</li>
+                  <li>• Cận 3–6 độ đã phẫu thuật ổn định</li>
+                  <li>
+                    • Thị lực sau chỉnh kính: 10/10 (mắt phải), tổng ≥ 19/10
+                  </li>
+                </ul>
+              </div>
+
+              {/* ===== NỮ ===== */}
+              <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm h-full">
+                <h4 className="font-bold text-slate-800 mb-4 text-base uppercase">
+                  Nữ
+                </h4>
+
+                <ul className="space-y-3 text-sm text-slate-700 leading-relaxed">
+                  <li>• Đạt Điểm 1 theo Thông tư 105</li>
+                  <li>• Chiều cao ≥ 1m54</li>
+                  <li>• Cân nặng ≥ 48kg</li>
+                  <li>• Được tuyển cận ≤ 3 độ</li>
+                  <li>• Cận 3–6 độ đã phẫu thuật ổn định</li>
+                  <li>
+                    • Thị lực sau chỉnh kính: 10/10 (mắt phải), tổng ≥ 19/10
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* ================= KHÁM SƠ TUYỂN ================= */}
+          <div>
+            <div className="flex items-center gap-3 mb-8 bg-yellow-50 p-4 rounded-2xl border border-yellow-100 w-fit">
+              <Stethoscope size={22} className="text-yellow-600" />
+              <h3 className="text-lg font-bold text-yellow-900 uppercase tracking-wide">
+                Khám sơ tuyển sức khỏe
+              </h3>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-white border border-yellow-100 shadow-sm">
+              <ul className="space-y-3 text-sm text-slate-700 leading-relaxed">
+                <li>
+                  • Thực hiện bởi Ban TSQS cấp xã và Hội đồng khám khu vực
+                </li>
+                <li>• Tổ chức theo Văn bản hợp nhất 88/VBHN-BQP</li>
+                <li>• Hoàn thành trước 15/4/2026</li>
+                <li>• Không để thí sinh có nguyện vọng nhưng chưa được khám</li>
+              </ul>
+            </div>
+          </div>
+          {/* ================= ƯU TIÊN 16 DÂN TỘC RẤT ÍT NGƯỜI ================= */}
+          <div className="mt-20">
+            <div className="flex items-center gap-3 mb-8 bg-red-50 p-4 rounded-2xl border border-red-100 w-fit">
+              <Star size={22} className="text-red-600" />
+              <h3 className="text-lg font-bold text-red-900 uppercase tracking-wide">
+                Chính sách ưu tiên – 16 dân tộc rất ít người
+              </h3>
+            </div>
+
+            <div className="p-8 rounded-3xl bg-white border border-red-100 shadow-sm">
+              <p className="text-sm text-slate-700 leading-relaxed mb-6">
+                Áp dụng đối với thí sinh là người dân tộc thiểu số thuộc 16 dân
+                tộc rất ít người theo Nghị định 57/2017/NĐ-CP của Chính phủ:
+              </p>
+
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm font-medium text-slate-700 mb-8">
+                {[
+                  "Cống",
+                  "Mảng",
+                  "Pu Péo",
+                  "Si La",
+                  "Cờ Lao",
+                  "Bố Y",
+                  "La Ha",
+                  "Ngái",
+                  "Chứt",
+                  "Ơ Đu",
+                  "Brâu",
+                  "Ro Măm",
+                  "Lô Lô",
+                  "Lự",
+                  "Pà Thẻn",
+                  "La Hủ",
+                ].map((item, idx) => (
+                  <div
+                    key={idx}
+                    className="bg-red-50 px-3 py-2 rounded-xl text-center"
+                  >
+                    {item}
                   </div>
-                  <div className="border-l-4 border-yellow-400 pl-4">
-                    <p className="font-black text-yellow-800 text-sm uppercase">
-                      Trường Lục quân 2
-                    </p>
-                    <p className="text-slate-600 text-sm font-medium">
-                      Thí sinh hộ khẩu từ tỉnh Quảng Trị trở vào phía Nam.
-                      (Thường trú ≥ 3 năm).
-                    </p>
-                  </div>
+                ))}
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {/* NAM */}
+                <div className="p-6 rounded-2xl border border-slate-200 bg-slate-50">
+                  <h4 className="font-bold text-slate-800 mb-4 uppercase">
+                    Nam
+                  </h4>
+                  <ul className="space-y-2 text-sm text-slate-700 leading-relaxed">
+                    <li>• Chiều cao ≥ 1m58</li>
+                    <li>• Cân nặng ≥ 46kg</li>
+                    <li>
+                      • Các tiêu chuẩn sức khỏe khác thực hiện theo quy định đối
+                      với thí sinh dân tộc thiểu số nói chung
+                    </li>
+                  </ul>
+                </div>
+
+                {/* NỮ */}
+                <div className="p-6 rounded-2xl border border-slate-200 bg-slate-50">
+                  <h4 className="font-bold text-slate-800 mb-4 uppercase">
+                    Nữ
+                  </h4>
+                  <ul className="space-y-2 text-sm text-slate-700 leading-relaxed">
+                    <li>• Chiều cao ≥ 1m52</li>
+                    <li>• Cân nặng ≥ 44kg</li>
+                    <li>
+                      • Các tiêu chuẩn sức khỏe khác thực hiện theo quy định đối
+                      với thí sinh dân tộc thiểu số nói chung
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-
       {/* Admission Process Timeline */}
       <section
         id="process"
         className="py-24 bg-slate-900 text-white relative scroll-mt-20"
       >
         <div className="absolute inset-0 star-pattern"></div>
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <SectionHeader
             title="Lộ trình Tuyển sinh chi tiết"
@@ -732,21 +746,49 @@ const App: React.FC = () => {
             variant="light"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 items-stretch">
             {ADMISSION_PROCESS.map((step, idx) => (
-              <div key={idx} className="relative group h-full">
-                <div className="bg-white/5 border border-white/10 rounded-[2.5rem] p-8 backdrop-blur-md hover:bg-white/10 transition-all h-full flex flex-col shadow-2xl">
-                  <div className="w-16 h-16 bg-yellow-400 text-red-900 rounded-2xl flex items-center justify-center font-black text-3xl mb-8 group-hover:scale-110 group-hover:rotate-3 transition-transform shadow-[0_10px_20px_rgba(251,191,36,0.3)]">
+              <div key={idx} className="h-full">
+                <div
+                  className="
+            bg-white/5 border border-white/10
+            rounded-[2.5rem] p-8
+            backdrop-blur-md
+            hover:bg-white/10
+            transition-all duration-300
+            shadow-2xl
+            flex flex-col h-full
+          "
+                >
+                  {/* Step Number */}
+                  <div
+                    className="
+              w-16 h-16
+              bg-yellow-400 text-red-900
+              rounded-2xl
+              flex items-center justify-center
+              font-black text-3xl
+              mb-8
+              shadow-[0_10px_20px_rgba(251,191,36,0.3)]
+            "
+                  >
                     {step.step}
                   </div>
-                  <h4 className="text-2xl font-black mb-4 uppercase tracking-tighter">
+
+                  {/* Title */}
+                  <h4 className="text-2xl font-black mb-4 uppercase tracking-tight leading-snug">
                     {step.title}
                   </h4>
+
+                  {/* Time */}
                   {step.time && (
-                    <div className="flex items-center gap-2 text-yellow-400 font-black mb-4 text-sm bg-yellow-400/10 px-3 py-1.5 rounded-full w-fit">
-                      <Calendar size={16} /> {step.time}
+                    <div className="flex items-center gap-2 text-yellow-400 font-bold mb-4 text-sm bg-yellow-400/10 px-3 py-1.5 rounded-full w-fit">
+                      <Calendar size={16} />
+                      {step.time}
                     </div>
                   )}
+
+                  {/* Location */}
                   {step.location && (
                     <div className="flex items-start gap-2 text-slate-300 mb-6 text-sm italic">
                       <MapPin
@@ -756,7 +798,9 @@ const App: React.FC = () => {
                       <span>{step.location}</span>
                     </div>
                   )}
-                  <ul className="space-y-4 mt-auto">
+
+                  {/* Content */}
+                  <ul className="space-y-4 mt-4 flex-1">
                     {step.content.map((c, i) => (
                       <li
                         key={i}
@@ -767,10 +811,13 @@ const App: React.FC = () => {
                       </li>
                     ))}
                   </ul>
+
+                  {/* Important Note (Step 3) */}
                   {step.step === 3 && (
-                    <div className="mt-8 p-4 bg-red-600/20 border border-red-500/30 rounded-2xl shadow-inner">
+                    <div className="mt-8 p-4 bg-red-600/20 border border-red-500/30 rounded-2xl">
                       <p className="text-[10px] font-black text-red-400 flex items-center gap-2 uppercase tracking-widest mb-1">
-                        <AlertTriangle size={14} /> Chú ý quan trọng
+                        <AlertTriangle size={14} />
+                        Chú ý quan trọng
                       </p>
                       <p className="text-xs text-white leading-tight font-bold">
                         Nguyện vọng 1 (cao nhất) phải đăng ký vào trường Quân
@@ -779,11 +826,6 @@ const App: React.FC = () => {
                     </div>
                   )}
                 </div>
-                {idx < 2 && (
-                  <div className="hidden lg:block absolute -right-4 top-1/2 -translate-y-1/2 z-20">
-                    <ArrowRight className="text-white/20" size={40} />
-                  </div>
-                )}
               </div>
             ))}
           </div>
@@ -1172,6 +1214,13 @@ const App: React.FC = () => {
         </div>
       </footer>
       {/* Bottom Contact Strip */}
+      {/* Selected University Detail View Modal */}
+      {selectedUniversity && (
+        <UniversityDetailView
+          data={selectedUniversity}
+          onClose={() => setSelectedUniversity(null)}
+        />
+      )}
       <div className="border-t border-slate-700 bg-slate-900">
         <div className="max-w-6xl mx-auto px-4 py-3 text-center">
           <p className="text-xs sm:text-sm text-slate-300 tracking-wide">
