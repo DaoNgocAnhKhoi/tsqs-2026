@@ -7,6 +7,9 @@ import {
   Users,
   MapPin,
   Award,
+  Wallet,
+  Star,
+  Briefcase,
 } from "lucide-react";
 import {
   Benefit,
@@ -18,28 +21,46 @@ import {
 
 export const BENEFITS: Benefit[] = [
   {
-    title: "Chế độ đãi ngộ",
+    title: "Bảo đảm toàn bộ chi phí đào tạo",
     description:
-      "Ăn, ở, quân trang hoàn toàn miễn phí trong suốt quá trình học tập.",
+      "Học viên được Quân đội chu cấp toàn bộ ăn, ở, quân trang; không phải đóng học phí; được cấp phát miễn phí trang thiết bị, đồ dùng học tập và sử dụng cơ sở vật chất phục vụ học tập, rèn luyện, nghiên cứu khoa học.",
     icon: Shield,
   },
   {
-    title: "Học phí & Phụ cấp",
+    title: "Phụ cấp sinh hoạt hàng tháng",
     description:
-      "Không phải đóng học phí, nhận phụ cấp sinh hoạt phí hàng tháng.",
-    icon: Heart,
+      "Trong suốt quá trình đào tạo, tất cả học viên đều được hưởng phụ cấp sinh hoạt phí theo quy định của Bộ Quốc phòng.",
+    icon: Wallet,
   },
   {
-    title: "Hỗ trợ Gia đình",
+    title: "Chính sách đối với thân nhân",
     description:
-      "Gia đình được hỗ trợ BHYT và các khoản trợ cấp khó khăn theo quy định.",
+      "Thân nhân (bố mẹ đẻ, bố mẹ nuôi hợp pháp, vợ, con...) nếu chưa có bảo hiểm y tế sẽ được Quân đội mua bảo hiểm; gia đình có khó khăn đột xuất được xem xét trợ cấp; con đẻ, con nuôi được hưởng chính sách miễn giảm học phí theo quy định của Nhà nước.",
     icon: Users,
   },
   {
-    title: "Đầu ra đảm bảo",
+    title: "Đào tạo toàn diện & khen thưởng",
     description:
-      "Tốt nghiệp được phong quân hàm sĩ quan và phân công công tác ngay.",
+      "Học viên được học tập, nghiên cứu khoa học và rèn luyện toàn diện về chính trị, đạo đức, tác phong, điều lệnh Quân đội. Hằng năm, học viên đạt loại giỏi, xuất sắc và rèn luyện tốt được hưởng chế độ khen thưởng theo quy định.",
+    icon: Star,
+  },
+  {
+    title: "Chế độ nghỉ & văn bằng quốc gia",
+    description:
+      "Học viên được hưởng chế độ nghỉ hè, nghỉ Tết theo quy định; tốt nghiệp được cấp bằng thuộc hệ thống văn bằng quốc gia.",
+    icon: GraduationCap,
+  },
+  {
+    title: "Phong quân hàm sĩ quan",
+    description:
+      "Tốt nghiệp được Bộ Quốc phòng phong quân hàm sĩ quan: mặc định cấp Thiếu úy; các trường hợp đủ điều kiện được phong Trung úy hoặc Thượng úy theo thành tích, chuyên ngành đào tạo và tiêu chuẩn quy định.",
     icon: Award,
+  },
+  {
+    title: "Phân công công tác sau tốt nghiệp",
+    description:
+      "Học viên phải chấp hành phân công công tác của Bộ Quốc phòng căn cứ mục tiêu đào tạo và nhu cầu đơn vị; học viên tốt nghiệp giỏi, xuất sắc được ưu tiên xem xét nguyện vọng.",
+    icon: Briefcase,
   },
 ];
 

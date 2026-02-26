@@ -403,30 +403,51 @@ const App: React.FC = () => {
       </section>
 
       {/* Benefits Section */}
-      <section id="benefits" className="py-24 bg-slate-50 scroll-mt-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="benefits" className="py-20 bg-white scroll-mt-20">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
-            title="Quyền Lợi & Chế Độ Đãi Ngộ"
-            subtitle="Học viên khi trúng tuyển vào các trường Quân đội được hưởng những chính sách đặc biệt từ Đảng và Nhà nước."
+            title="Quyền lợi & Chế độ đối với Học viên"
+            subtitle="Áp dụng đối với học viên đào tạo sĩ quan trong các trường Quân đội."
             centered
           />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+          <div className="mt-16 space-y-8">
             {BENEFITS.map((benefit, idx) => {
               const Icon = benefit.icon;
               return (
                 <div
-                  key={idx}
-                  className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all hover:-translate-y-2 flex flex-col items-center text-center group"
+                  className="bg-white 
+                p-5 sm:p-6 lg:p-8
+                rounded-2xl
+                border border-slate-200
+                shadow-sm
+                hover:shadow-lg
+                transition-all
+                flex items-start gap-4"
                 >
-                  <div className="w-16 h-16 bg-red-50 text-red-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-red-600 group-hover:text-white transition-colors">
-                    <Icon />
+                  {/* ICON */}
+                  <div
+                    className="
+      w-12 h-12 sm:w-14 sm:h-14
+      rounded-xl
+      bg-red-50
+      flex items-center justify-center
+      shrink-0
+      text-red-700
+  "
+                  >
+                    <Icon size={22} />
                   </div>
-                  <h4 className="text-xl font-bold text-slate-800 mb-3">
-                    {benefit.title}
-                  </h4>
-                  <p className="text-slate-600 leading-relaxed">
-                    {benefit.description}
-                  </p>
+
+                  {/* CONTENT */}
+                  <div>
+                    <h4 className="text-base sm:text-lg font-semibold text-slate-800 mb-2">
+                      {benefit.title}
+                    </h4>
+                    <p className="text-sm text-slate-600 leading-relaxed">
+                      {benefit.description}
+                    </p>
+                  </div>
                 </div>
               );
             })}
