@@ -281,116 +281,101 @@ const App: React.FC = () => {
       </section>
 
       {/* ================= ĐỐI TƯỢNG DỰ TUYỂN ================= */}
-      <section className="py-24 bg-gradient-to-b from-slate-50 to-white border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-xl p-12 border border-slate-300 shadow-sm">
+      <section className="py-12 sm:py-16 bg-gradient-to-b from-slate-50 to-white border-b border-slate-200">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-2xl p-6 sm:p-10 border border-slate-200 shadow-sm">
             {/* ================= HEADER ================= */}
-            <div className="mb-16 border-l-4 border-red-800 pl-6">
-              <h3 className="text-2xl font-extrabold text-red-900 flex items-center gap-3 uppercase tracking-wide">
-                <Landmark className="text-red-800" size={28} />
+            <div className="mb-10 sm:mb-14 border-l-4 border-red-800 pl-4 sm:pl-6">
+              <h3 className="text-lg sm:text-2xl font-semibold text-red-900 flex items-center gap-2 sm:gap-3 uppercase tracking-wide">
+                <Landmark className="text-red-800" size={22} />
                 Đối tượng dự tuyển
               </h3>
-              <p className="text-slate-600 text-sm mt-3 leading-relaxed max-w-3xl">
-                Thực hiện theo Điều 10 Thông tư 41 của Bộ Quốc phòng. Áp dụng
-                tuyển sinh đào tạo sĩ quan năm 2026.
+              <p className="text-slate-600 text-xs sm:text-sm mt-2 sm:mt-3 leading-relaxed max-w-2xl">
+                Thực hiện theo Điều 10 Thông tư 41 của Bộ Quốc phòng.
               </p>
             </div>
 
             {/* ================= GRID CHÍNH ================= */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-14">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
               {/* ================= TRONG QUÂN ĐỘI ================= */}
-              <div className="border border-slate-300 rounded-xl p-10 bg-slate-50">
-                <h4 className="text-base font-bold text-green-900 mb-8 uppercase tracking-wide flex items-center gap-3">
-                  <Shield size={22} className="text-green-800" />
-                  Đối tượng trong Quân đội
+              <div className="border border-slate-200 rounded-2xl p-5 sm:p-8 bg-slate-50">
+                <h4 className="text-sm sm:text-base font-semibold text-green-900 mb-6 uppercase tracking-wide flex items-center gap-2">
+                  <Shield size={20} className="text-green-800" />
+                  Trong Quân đội
                 </h4>
 
-                <ul className="space-y-5 text-sm text-slate-700 leading-relaxed">
-                  <li className="flex gap-4">
-                    <Award className="text-green-800 shrink-0 mt-1" size={18} />
-                    Hạ sĩ quan, binh sĩ đang phục vụ tại ngũ đủ 12 tháng trở lên
-                    (tính đến tháng 4/2026; nhập ngũ từ năm 2025 trở về trước).
+                <ul className="space-y-4 text-sm text-slate-700 leading-relaxed">
+                  <li className="flex gap-3">
+                    <Award className="text-green-800 shrink-0 mt-1" size={16} />
+                    Hạ sĩ quan, binh sĩ tại ngũ đủ 12 tháng trở lên.
                   </li>
 
-                  <li className="flex gap-4">
-                    <Award className="text-green-800 shrink-0 mt-1" size={18} />
-                    Quân nhân chuyên nghiệp; công nhân và viên chức quốc phòng
-                    phục vụ đủ 12 tháng trở lên (tính đến tháng 9/2026).
+                  <li className="flex gap-3">
+                    <Award className="text-green-800 shrink-0 mt-1" size={16} />
+                    Quân nhân chuyên nghiệp, công nhân quốc phòng đủ 12 tháng.
                   </li>
 
-                  <li className="flex gap-4">
-                    <Award className="text-green-800 shrink-0 mt-1" size={18} />
-                    Được đơn vị quản lý trực tiếp tổ chức sơ tuyển, lập hồ sơ
-                    theo đúng quy định và bảo đảm điều kiện chính trị, phẩm chất
-                    đạo đức, kỷ luật.
+                  <li className="flex gap-3">
+                    <Award className="text-green-800 shrink-0 mt-1" size={16} />
+                    Được đơn vị sơ tuyển, bảo đảm điều kiện chính trị và kỷ
+                    luật.
                   </li>
 
-                  <li className="flex gap-4">
-                    <Award className="text-green-800 shrink-0 mt-1" size={18} />
-                    Có nguyện vọng tự nguyện đăng ký dự tuyển và được cấp có
-                    thẩm quyền cho phép.
+                  <li className="flex gap-3">
+                    <Award className="text-green-800 shrink-0 mt-1" size={16} />
+                    Tự nguyện đăng ký và được cấp có thẩm quyền cho phép.
                   </li>
                 </ul>
               </div>
 
               {/* ================= NGOÀI QUÂN ĐỘI ================= */}
-              <div className="border border-slate-300 rounded-xl p-10 bg-slate-50">
-                <h4 className="text-base font-bold text-amber-800 mb-8 uppercase tracking-wide flex items-center gap-3">
-                  <User size={22} className="text-amber-700" />
-                  Thanh niên ngoài Quân đội
+              <div className="border border-slate-200 rounded-2xl p-5 sm:p-8 bg-slate-50">
+                <h4 className="text-sm sm:text-base font-semibold text-amber-800 mb-6 uppercase tracking-wide flex items-center gap-2">
+                  <User size={20} className="text-amber-700" />
+                  Ngoài Quân đội
                 </h4>
 
-                <ul className="space-y-5 text-sm text-slate-700 leading-relaxed">
-                  <li className="flex gap-4">
-                    <Star className="text-amber-700 shrink-0 mt-1" size={18} />
-                    Nam thanh niên tốt nghiệp THPT (hoặc tương đương), kể cả đã
-                    xuất ngũ hoặc hoàn thành nghĩa vụ Công an nhân dân.
+                <ul className="space-y-4 text-sm text-slate-700 leading-relaxed">
+                  <li className="flex gap-3">
+                    <Star className="text-amber-700 shrink-0 mt-1" size={16} />
+                    Nam tốt nghiệp THPT (kể cả đã xuất ngũ).
                   </li>
 
-                  <li className="flex gap-4">
-                    <Star className="text-amber-700 shrink-0 mt-1" size={18} />
-                    Số lượng đăng ký dự tuyển không hạn chế; xét tuyển theo chỉ
-                    tiêu được Bộ Quốc phòng giao.
+                  <li className="flex gap-3">
+                    <Star className="text-amber-700 shrink-0 mt-1" size={16} />
+                    Số lượng đăng ký không hạn chế, xét theo chỉ tiêu.
                   </li>
 
-                  <li className="flex gap-4">
-                    <Star className="text-amber-700 shrink-0 mt-1" size={18} />
-                    Tuyển nữ thanh niên ngoài Quân đội và nữ quân nhân vào các
-                    ngành được giao chỉ tiêu tuyển nữ năm 2026.
+                  <li className="flex gap-3">
+                    <Star className="text-amber-700 shrink-0 mt-1" size={16} />
+                    Tuyển nữ theo ngành có chỉ tiêu năm 2026.
                   </li>
 
-                  <li className="flex gap-4">
-                    <Star className="text-amber-700 shrink-0 mt-1" size={18} />
-                    Đáp ứng đầy đủ tiêu chuẩn chính trị, đạo đức, sức khỏe, văn
-                    hóa theo quy định hiện hành.
+                  <li className="flex gap-3">
+                    <Star className="text-amber-700 shrink-0 mt-1" size={16} />
+                    Đáp ứng tiêu chuẩn chính trị, đạo đức, sức khỏe.
                   </li>
                 </ul>
               </div>
             </div>
 
             {/* ================= ĐỘ TUỔI ================= */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-20">
-              <div className="border border-slate-300 rounded-xl p-8 text-center bg-white shadow-sm">
-                <p className="text-xs uppercase tracking-widest text-slate-500 mb-4">
-                  Độ tuổi đối với Quân nhân tại ngũ
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-12 sm:mt-16">
+              <div className="border border-slate-200 rounded-2xl p-6 text-center bg-white shadow-sm">
+                <p className="text-xs uppercase tracking-wider text-slate-500 mb-3">
+                  Quân nhân tại ngũ
                 </p>
-                <p className="text-4xl font-extrabold text-green-900">
+                <p className="text-2xl sm:text-3xl font-bold text-green-900">
                   18 – 23 tuổi
-                </p>
-                <p className="text-sm text-slate-500 mt-3">
-                  Tính đến năm dự tuyển
                 </p>
               </div>
 
-              <div className="border border-slate-300 rounded-xl p-8 text-center bg-white shadow-sm">
-                <p className="text-xs uppercase tracking-widest text-slate-500 mb-4">
-                  Độ tuổi đối với Thanh niên ngoài Quân đội
+              <div className="border border-slate-200 rounded-2xl p-6 text-center bg-white shadow-sm">
+                <p className="text-xs uppercase tracking-wider text-slate-500 mb-3">
+                  Thanh niên ngoài Quân đội
                 </p>
-                <p className="text-4xl font-extrabold text-amber-800">
+                <p className="text-2xl sm:text-3xl font-bold text-amber-800">
                   17 – 21 tuổi
-                </p>
-                <p className="text-sm text-slate-500 mt-3">
-                  Tính đến năm dự tuyển
                 </p>
               </div>
             </div>
@@ -794,7 +779,9 @@ const App: React.FC = () => {
               {/* INTRO */}
               <div className="max-w-4xl text-sm text-slate-700 leading-relaxed mb-10">
                 <p>
-                  Chuyên ngành Phi công quân sự tại Trường Sĩ quan Không quân tuyển chọn thí sinh đã được Quân chủng Phòng không – Không quân tổ chức khám tuyển và kết luận đủ điều kiện dự tuyển.
+                  Chuyên ngành Phi công quân sự tại Trường Sĩ quan Không quân
+                  tuyển chọn thí sinh đã được Quân chủng Phòng không – Không
+                  quân tổ chức khám tuyển và kết luận đủ điều kiện dự tuyển.
                 </p>
               </div>
 
