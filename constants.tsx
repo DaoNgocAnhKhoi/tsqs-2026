@@ -21,25 +21,25 @@ export const BENEFITS: Benefit[] = [
     title: "Chế độ đãi ngộ",
     description:
       "Ăn, ở, quân trang hoàn toàn miễn phí trong suốt quá trình học tập.",
-    icon: "Shield",
+    icon: Shield,
   },
   {
     title: "Học phí & Phụ cấp",
     description:
       "Không phải đóng học phí, nhận phụ cấp sinh hoạt phí hàng tháng.",
-    icon: "Heart",
+    icon: Heart,
   },
   {
     title: "Hỗ trợ Gia đình",
     description:
       "Gia đình được hỗ trợ BHYT và các khoản trợ cấp khó khăn theo quy định.",
-    icon: "Users",
+    icon: Users,
   },
   {
     title: "Đầu ra đảm bảo",
     description:
       "Tốt nghiệp được phong quân hàm sĩ quan và phân công công tác ngay.",
-    icon: "Award",
+    icon: Award,
   },
 ];
 
@@ -182,6 +182,7 @@ export const SCHOOLS: School[] = [
     id: "cd_kt_mm",
     name: "Cao đẳng Kỹ thuật Mật mã",
     category: "College",
+    note: "Phải đáp ứng tiêu chuẩn chính trị theo Nghị định 03/2024/NĐ-CP ngày 05/09/2024 của Chính phủ",
   },
   {
     id: "cd_cnqp",

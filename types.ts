@@ -1,7 +1,9 @@
+import { IconNode, LucideIcon } from "lucide-react";
+
 export interface Benefit {
   title: string;
   description: string;
-  icon: string;
+  icon: LucideIcon;
 }
 
 export interface School {

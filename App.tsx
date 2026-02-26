@@ -22,6 +22,13 @@ import {
   Cpu,
   Heart,
   Stethoscope,
+  Landmark,
+  ShieldCheck,
+  Medal,
+  UserCheck,
+  Award,
+  User,
+  Plane,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -273,61 +280,118 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* Target Audience */}
-      <section className="py-16 bg-white border-b border-slate-200">
+      {/* ================= ĐỐI TƯỢNG DỰ TUYỂN ================= */}
+      <section className="py-24 bg-gradient-to-b from-slate-50 to-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-slate-50 rounded-3xl p-8 border border-slate-200 shadow-sm">
-            <div>
-              <h3 className="text-2xl font-bold text-slate-800 mb-4 flex items-center gap-3">
-                <Users className="text-red-600" /> Đối tượng dự tuyển
+          <div className="bg-white rounded-xl p-12 border border-slate-300 shadow-sm">
+            {/* ================= HEADER ================= */}
+            <div className="mb-16 border-l-4 border-red-800 pl-6">
+              <h3 className="text-2xl font-extrabold text-red-900 flex items-center gap-3 uppercase tracking-wide">
+                <Landmark className="text-red-800" size={28} />
+                Đối tượng dự tuyển
               </h3>
-              <ul className="space-y-4">
-                <li className="flex gap-3">
-                  <CheckCircle2 className="text-green-600 shrink-0 mt-1" />
-                  <span className="text-slate-700 font-medium">
-                    Thanh niên ngoài Quân đội (Học sinh tốt nghiệp THPT)
-                  </span>
-                </li>
-                <li className="flex gap-3">
-                  <CheckCircle2 className="text-green-600 shrink-0 mt-1" />
-                  <span className="text-slate-700 font-medium">
-                    Hạ sĩ quan, binh sĩ, quân nhân chuyên nghiệp, CNVCQP
-                  </span>
-                </li>
-              </ul>
+              <p className="text-slate-600 text-sm mt-3 leading-relaxed max-w-3xl">
+                Thực hiện theo Điều 10 Thông tư 41 của Bộ Quốc phòng. Áp dụng
+                tuyển sinh đào tạo sĩ quan năm 2026.
+              </p>
             </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
-                <p className="text-sm text-slate-500 mb-1 text-center font-medium">
-                  Độ tuổi Dân sự
-                </p>
-                <div className="flex items-end justify-center gap-1">
-                  <span className="text-3xl sm:text-4xl font-extrabold text-red-600">
-                    17
-                  </span>
-                  <span className="text-xl sm:text-2xl font-bold text-red-500 mb-1">
-                    –
-                  </span>
-                  <span className="text-3xl sm:text-4xl font-extrabold text-red-600">
-                    21
-                  </span>
-                </div>
+
+            {/* ================= GRID CHÍNH ================= */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-14">
+              {/* ================= TRONG QUÂN ĐỘI ================= */}
+              <div className="border border-slate-300 rounded-xl p-10 bg-slate-50">
+                <h4 className="text-base font-bold text-green-900 mb-8 uppercase tracking-wide flex items-center gap-3">
+                  <Shield size={22} className="text-green-800" />
+                  Đối tượng trong Quân đội
+                </h4>
+
+                <ul className="space-y-5 text-sm text-slate-700 leading-relaxed">
+                  <li className="flex gap-4">
+                    <Award className="text-green-800 shrink-0 mt-1" size={18} />
+                    Hạ sĩ quan, binh sĩ đang phục vụ tại ngũ đủ 12 tháng trở lên
+                    (tính đến tháng 4/2026; nhập ngũ từ năm 2025 trở về trước).
+                  </li>
+
+                  <li className="flex gap-4">
+                    <Award className="text-green-800 shrink-0 mt-1" size={18} />
+                    Quân nhân chuyên nghiệp; công nhân và viên chức quốc phòng
+                    phục vụ đủ 12 tháng trở lên (tính đến tháng 9/2026).
+                  </li>
+
+                  <li className="flex gap-4">
+                    <Award className="text-green-800 shrink-0 mt-1" size={18} />
+                    Được đơn vị quản lý trực tiếp tổ chức sơ tuyển, lập hồ sơ
+                    theo đúng quy định và bảo đảm điều kiện chính trị, phẩm chất
+                    đạo đức, kỷ luật.
+                  </li>
+
+                  <li className="flex gap-4">
+                    <Award className="text-green-800 shrink-0 mt-1" size={18} />
+                    Có nguyện vọng tự nguyện đăng ký dự tuyển và được cấp có
+                    thẩm quyền cho phép.
+                  </li>
+                </ul>
               </div>
-              <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
-                <p className="text-sm text-slate-500 mb-1 text-center font-medium">
-                  Độ tuổi Quân nhân
+
+              {/* ================= NGOÀI QUÂN ĐỘI ================= */}
+              <div className="border border-slate-300 rounded-xl p-10 bg-slate-50">
+                <h4 className="text-base font-bold text-amber-800 mb-8 uppercase tracking-wide flex items-center gap-3">
+                  <User size={22} className="text-amber-700" />
+                  Thanh niên ngoài Quân đội
+                </h4>
+
+                <ul className="space-y-5 text-sm text-slate-700 leading-relaxed">
+                  <li className="flex gap-4">
+                    <Star className="text-amber-700 shrink-0 mt-1" size={18} />
+                    Nam thanh niên tốt nghiệp THPT (hoặc tương đương), kể cả đã
+                    xuất ngũ hoặc hoàn thành nghĩa vụ Công an nhân dân.
+                  </li>
+
+                  <li className="flex gap-4">
+                    <Star className="text-amber-700 shrink-0 mt-1" size={18} />
+                    Số lượng đăng ký dự tuyển không hạn chế; xét tuyển theo chỉ
+                    tiêu được Bộ Quốc phòng giao.
+                  </li>
+
+                  <li className="flex gap-4">
+                    <Star className="text-amber-700 shrink-0 mt-1" size={18} />
+                    Tuyển nữ thanh niên ngoài Quân đội và nữ quân nhân vào các
+                    ngành được giao chỉ tiêu tuyển nữ năm 2026.
+                  </li>
+
+                  <li className="flex gap-4">
+                    <Star className="text-amber-700 shrink-0 mt-1" size={18} />
+                    Đáp ứng đầy đủ tiêu chuẩn chính trị, đạo đức, sức khỏe, văn
+                    hóa theo quy định hiện hành.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* ================= ĐỘ TUỔI ================= */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-20">
+              <div className="border border-slate-300 rounded-xl p-8 text-center bg-white shadow-sm">
+                <p className="text-xs uppercase tracking-widest text-slate-500 mb-4">
+                  Độ tuổi đối với Quân nhân tại ngũ
                 </p>
-                <div className="flex items-end justify-center gap-1">
-                  <span className="text-3xl sm:text-4xl font-extrabold text-green-700">
-                    18
-                  </span>
-                  <span className="text-xl sm:text-2xl font-bold text-green-600 mb-1">
-                    –
-                  </span>
-                  <span className="text-3xl sm:text-4xl font-extrabold text-green-700">
-                    23
-                  </span>
-                </div>
+                <p className="text-4xl font-extrabold text-green-900">
+                  18 – 23 tuổi
+                </p>
+                <p className="text-sm text-slate-500 mt-3">
+                  Tính đến năm dự tuyển
+                </p>
+              </div>
+
+              <div className="border border-slate-300 rounded-xl p-8 text-center bg-white shadow-sm">
+                <p className="text-xs uppercase tracking-widest text-slate-500 mb-4">
+                  Độ tuổi đối với Thanh niên ngoài Quân đội
+                </p>
+                <p className="text-4xl font-extrabold text-amber-800">
+                  17 – 21 tuổi
+                </p>
+                <p className="text-sm text-slate-500 mt-3">
+                  Tính đến năm dự tuyển
+                </p>
               </div>
             </div>
           </div>
@@ -536,31 +600,30 @@ const App: React.FC = () => {
       {/* ================= TIÊU CHUẨN SỨC KHỎE ================= */}
       <section
         id="health"
-        className="py-24 bg-white scroll-mt-20 border-t border-slate-100"
+        className="py-24 bg-gradient-to-b from-slate-50 to-white scroll-mt-20 border-t border-slate-200"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             title="Tiêu chuẩn Sức khỏe Tuyển sinh"
-            subtitle="Áp dụng theo Thông tư 105/2023/TT-BQP và 106/2025/TT-BQP."
+            subtitle="Áp dụng theo Thông tư 105/2023/TT-BQP và 106/2025/TT-BQP"
             centered
           />
 
           {/* ================= CHỈ HUY - CHÍNH TRỊ - HẬU CẦN ================= */}
-          <div className="mb-20">
-            <div className="flex items-center gap-3 mb-8 bg-green-50 p-4 rounded-2xl border border-green-100 w-fit">
-              <Shield size={22} className="text-green-600" />
-              <h3 className="text-lg font-bold text-green-900 uppercase tracking-wide">
+          <div className="mb-24">
+            <div className="flex items-center gap-3 mb-8 border-l-4 border-red-700 pl-4">
+              <Shield size={26} className="text-red-700" />
+              <h3 className="text-lg font-bold text-red-900 uppercase tracking-wide">
                 Khối Chỉ huy – Chính trị – Hậu cần
               </h3>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* ===== NAM ===== */}
-              <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm h-full">
-                <h4 className="font-bold text-slate-800 mb-4 text-base uppercase">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+              {/* NAM */}
+              <div className="p-8 rounded-xl bg-white border border-slate-300 shadow-sm">
+                <h4 className="font-bold text-slate-900 mb-5 uppercase text-base border-b pb-2">
                   Nam
                 </h4>
-
                 <ul className="space-y-3 text-sm text-slate-700 leading-relaxed">
                   <li>• BMI ≤ 30</li>
                   <li>• Chiều cao ≥ 1m65</li>
@@ -569,12 +632,11 @@ const App: React.FC = () => {
                 </ul>
               </div>
 
-              {/* ===== NỮ ===== */}
-              <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm h-full">
-                <h4 className="font-bold text-slate-800 mb-4 text-base uppercase">
+              {/* NỮ */}
+              <div className="p-8 rounded-xl bg-white border border-slate-300 shadow-sm">
+                <h4 className="font-bold text-slate-900 mb-5 uppercase text-base border-b pb-2">
                   Nữ
                 </h4>
-
                 <ul className="space-y-3 text-sm text-slate-700 leading-relaxed">
                   <li>• Đạt Điểm 1 theo Thông tư 105</li>
                   <li>• Chiều cao ≥ 1m54</li>
@@ -586,21 +648,20 @@ const App: React.FC = () => {
           </div>
 
           {/* ================= CHUYÊN MÔN KỸ THUẬT ================= */}
-          <div className="mb-20">
-            <div className="flex items-center gap-3 mb-8 bg-blue-50 p-4 rounded-2xl border border-blue-100 w-fit">
-              <Cpu size={22} className="text-blue-600" />
-              <h3 className="text-lg font-bold text-blue-900 uppercase tracking-wide">
+          <div className="mb-24">
+            <div className="flex items-center gap-3 mb-8 border-l-4 border-amber-600 pl-4">
+              <Cpu size={26} className="text-amber-600" />
+              <h3 className="text-lg font-bold text-amber-800 uppercase tracking-wide">
                 Khối Chuyên môn kỹ thuật
               </h3>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* ===== NAM ===== */}
-              <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm h-full">
-                <h4 className="font-bold text-slate-800 mb-4 text-base uppercase">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+              {/* NAM */}
+              <div className="p-8 rounded-xl bg-white border border-slate-300 shadow-sm">
+                <h4 className="font-bold text-slate-900 mb-5 uppercase text-base border-b pb-2">
                   Nam
                 </h4>
-
                 <ul className="space-y-3 text-sm text-slate-700 leading-relaxed">
                   <li>• BMI ≤ 30</li>
                   <li>• Chiều cao ≥ 1m63</li>
@@ -613,12 +674,11 @@ const App: React.FC = () => {
                 </ul>
               </div>
 
-              {/* ===== NỮ ===== */}
-              <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm h-full">
-                <h4 className="font-bold text-slate-800 mb-4 text-base uppercase">
+              {/* NỮ */}
+              <div className="p-8 rounded-xl bg-white border border-slate-300 shadow-sm">
+                <h4 className="font-bold text-slate-900 mb-5 uppercase text-base border-b pb-2">
                   Nữ
                 </h4>
-
                 <ul className="space-y-3 text-sm text-slate-700 leading-relaxed">
                   <li>• Đạt Điểm 1 theo Thông tư 105</li>
                   <li>• Chiều cao ≥ 1m54</li>
@@ -634,15 +694,15 @@ const App: React.FC = () => {
           </div>
 
           {/* ================= KHÁM SƠ TUYỂN ================= */}
-          <div>
-            <div className="flex items-center gap-3 mb-8 bg-yellow-50 p-4 rounded-2xl border border-yellow-100 w-fit">
-              <Stethoscope size={22} className="text-yellow-600" />
-              <h3 className="text-lg font-bold text-yellow-900 uppercase tracking-wide">
+          <div className="mb-24">
+            <div className="flex items-center gap-3 mb-8 border-l-4 border-green-800 pl-4">
+              <Stethoscope size={26} className="text-green-800" />
+              <h3 className="text-lg font-bold text-green-900 uppercase tracking-wide">
                 Khám sơ tuyển sức khỏe
               </h3>
             </div>
 
-            <div className="p-6 rounded-2xl bg-white border border-yellow-100 shadow-sm">
+            <div className="p-8 rounded-xl bg-white border border-slate-300 shadow-sm">
               <ul className="space-y-3 text-sm text-slate-700 leading-relaxed">
                 <li>
                   • Thực hiện bởi Ban TSQS cấp xã và Hội đồng khám khu vực
@@ -653,22 +713,22 @@ const App: React.FC = () => {
               </ul>
             </div>
           </div>
-          {/* ================= ƯU TIÊN 16 DÂN TỘC RẤT ÍT NGƯỜI ================= */}
-          <div className="mt-20">
-            <div className="flex items-center gap-3 mb-8 bg-red-50 p-4 rounded-2xl border border-red-100 w-fit">
-              <Star size={22} className="text-red-600" />
+
+          {/* ================= ƯU TIÊN 16 DÂN TỘC ================= */}
+          <div className="mb-24">
+            <div className="flex items-center gap-3 mb-8 border-l-4 border-red-800 pl-4">
+              <Star size={26} className="text-yellow-500" />
               <h3 className="text-lg font-bold text-red-900 uppercase tracking-wide">
                 Chính sách ưu tiên – 16 dân tộc rất ít người
               </h3>
             </div>
 
-            <div className="p-8 rounded-3xl bg-white border border-red-100 shadow-sm">
-              <p className="text-sm text-slate-700 leading-relaxed mb-6">
-                Áp dụng đối với thí sinh là người dân tộc thiểu số thuộc 16 dân
-                tộc rất ít người theo Nghị định 57/2017/NĐ-CP của Chính phủ:
+            <div className="p-10 rounded-xl bg-white border border-slate-300 shadow-sm">
+              <p className="text-sm text-slate-700 mb-6 leading-relaxed">
+                Áp dụng theo Nghị định 57/2017/NĐ-CP của Chính phủ.
               </p>
 
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm font-medium text-slate-700 mb-8">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm font-medium text-slate-800 mb-10">
                 {[
                   "Cống",
                   "Mảng",
@@ -689,43 +749,115 @@ const App: React.FC = () => {
                 ].map((item, idx) => (
                   <div
                     key={idx}
-                    className="bg-red-50 px-3 py-2 rounded-xl text-center"
+                    className="border border-slate-300 px-3 py-2 text-center rounded-md"
                   >
                     {item}
                   </div>
                 ))}
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {/* NAM */}
-                <div className="p-6 rounded-2xl border border-slate-200 bg-slate-50">
-                  <h4 className="font-bold text-slate-800 mb-4 uppercase">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div className="p-6 border border-slate-300 rounded-lg bg-slate-50">
+                  <h4 className="font-bold text-slate-900 mb-4 uppercase">
                     Nam
                   </h4>
-                  <ul className="space-y-2 text-sm text-slate-700 leading-relaxed">
+                  <ul className="space-y-2 text-sm text-slate-700">
                     <li>• Chiều cao ≥ 1m58</li>
                     <li>• Cân nặng ≥ 46kg</li>
-                    <li>
-                      • Các tiêu chuẩn sức khỏe khác thực hiện theo quy định đối
-                      với thí sinh dân tộc thiểu số nói chung
+                    <li>• Các tiêu chuẩn khác thực hiện theo quy định chung</li>
+                  </ul>
+                </div>
+
+                <div className="p-6 border border-slate-300 rounded-lg bg-slate-50">
+                  <h4 className="font-bold text-slate-900 mb-4 uppercase">
+                    Nữ
+                  </h4>
+                  <ul className="space-y-2 text-sm text-slate-700">
+                    <li>• Chiều cao ≥ 1m52</li>
+                    <li>• Cân nặng ≥ 44kg</li>
+                    <li>• Các tiêu chuẩn khác thực hiện theo quy định chung</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* ================= PHI CÔNG QUÂN SỰ ================= */}
+          <div className="mb-20">
+            <div className="flex items-center gap-3 mb-6 border-l-4 border-sky-800 pl-4">
+              <Plane size={24} className="text-sky-800" />
+              <h3 className="text-lg font-semibold text-sky-900 uppercase tracking-wide">
+                Tuyển sinh đào tạo Phi công quân sự
+              </h3>
+            </div>
+
+            <div className="rounded-3xl border border-sky-200 bg-gradient-to-br from-sky-50 to-white shadow-sm p-10">
+              {/* INTRO */}
+              <div className="max-w-4xl text-sm text-slate-700 leading-relaxed mb-10">
+                <p>
+                  Chuyên ngành Phi công quân sự tại Trường Sĩ quan Không quân tuyển chọn thí sinh đã được Quân chủng Phòng không – Không quân tổ chức khám tuyển và kết luận đủ điều kiện dự tuyển.
+                </p>
+              </div>
+
+              {/* 2 COLUMNS */}
+              <div className="grid md:grid-cols-2 gap-10 mb-12">
+                {/* LEFT */}
+                <div className="rounded-2xl border border-sky-200 bg-white p-6">
+                  <h4 className="text-sm font-bold text-sky-900 mb-6 tracking-wide uppercase">
+                    Điều kiện bắt buộc
+                  </h4>
+
+                  <ul className="space-y-4 text-sm text-slate-700">
+                    <li className="flex gap-3">
+                      <CheckCircle2
+                        size={18}
+                        className="text-sky-700 mt-1 shrink-0"
+                      />
+                      Trải qua hai vòng khám sức khỏe chuyên sâu theo quy định.
+                    </li>
+
+                    <li className="flex gap-3">
+                      <CheckCircle2
+                        size={18}
+                        className="text-sky-700 mt-1 shrink-0"
+                      />
+                      Được kết luận đủ điều kiện đào tạo phi công quân sự.
                     </li>
                   </ul>
                 </div>
 
-                {/* NỮ */}
-                <div className="p-6 rounded-2xl border border-slate-200 bg-slate-50">
-                  <h4 className="font-bold text-slate-800 mb-4 uppercase">
-                    Nữ
+                {/* RIGHT */}
+                <div className="rounded-2xl border border-sky-200 bg-white p-6">
+                  <h4 className="text-sm font-bold text-sky-900 mb-6 tracking-wide uppercase">
+                    Quy định sơ tuyển
                   </h4>
-                  <ul className="space-y-2 text-sm text-slate-700 leading-relaxed">
-                    <li>• Chiều cao ≥ 1m52</li>
-                    <li>• Cân nặng ≥ 44kg</li>
-                    <li>
-                      • Các tiêu chuẩn sức khỏe khác thực hiện theo quy định đối
-                      với thí sinh dân tộc thiểu số nói chung
+
+                  <ul className="space-y-4 text-sm text-slate-700">
+                    <li className="flex gap-3">
+                      <ShieldCheck
+                        size={18}
+                        className="text-sky-700 mt-1 shrink-0"
+                      />
+                      Không khám lại tại Ban TSQS cấp xã nếu đã được kết luận đủ
+                      điều kiện.
+                    </li>
+
+                    <li className="flex gap-3">
+                      <ShieldCheck
+                        size={18}
+                        className="text-sky-700 mt-1 shrink-0"
+                      />
+                      Chỉ xét tuyển thí sinh đáp ứng tiêu chuẩn sức khỏe theo
+                      quy trình riêng.
                     </li>
                   </ul>
                 </div>
+              </div>
+
+              {/* NOTICE */}
+              <div className="rounded-2xl border border-sky-300 bg-sky-100/60 p-6 text-sm text-sky-900 leading-relaxed">
+                Công tác tuyển chọn Phi công quân sự thực hiện theo quy trình
+                đặc thù, bảo đảm tiêu chuẩn sức khỏe và yêu cầu đào tạo của Quân
+                chủng Phòng không – Không quân.
               </div>
             </div>
           </div>
