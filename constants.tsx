@@ -475,4 +475,266 @@ export const UNIVERSITY_DETAILS: Record<string, UniversityFullDetail> = {
       },
     },
   },
+  mta: {
+    id: "mta",
+    fullName: "HỌC VIỆN KỸ THUẬT QUÂN SỰ",
+    shortName: "Military Technical Academy",
+    bannerImage: "/images/universities/mta/banner.jpg",
+    logo: "/images/universities/mta/logo.png",
+    gallery: [
+      "/images/universities/mta/gallery1.jpg",
+      "/images/universities/mta/gallery2.jpg",
+      "/images/universities/mta/gallery3.jpg",
+    ],
+    history: [
+      "Ngày 08/8/1966 thành lập cơ sở đào tạo kỹ sư quân sự trực thuộc Đại học Bách khoa Hà Nội (Phân hiệu 2).",
+      "28/10/1966 tổ chức Lễ thành lập – ngày truyền thống của Học viện.",
+      "18/10/1968 đổi tên thành Đại học Kỹ thuật Quân sự.",
+      "15/12/1981 thành lập Học viện Kỹ thuật Quân sự.",
+      "Từ 2002 đào tạo hệ dân sự.",
+      "01/2008 được công nhận là Đại học trọng điểm Quốc gia.",
+    ],
+    achievements: {
+      highlights: [
+        "Một trong 15 trường Đại học trọng điểm Quốc gia.",
+        "Đào tạo cán bộ kỹ thuật, chỉ huy tham mưu kỹ thuật trình độ đại học, thạc sĩ, tiến sĩ.",
+      ],
+      medals: [
+        "Huân chương Hồ Chí Minh (2011).",
+        "Huân chương Độc lập hạng Nhì (2016).",
+        "Danh hiệu Anh hùng LLVTND (2005).",
+        "02 Huân chương Quân công hạng Nhất.",
+      ],
+    },
+    contact: {
+      address: "236 Hoàng Quốc Việt, Bắc Từ Liêm, Hà Nội",
+      phone: "069 515226",
+      email: "tuyensinh@mta.edu.vn",
+      website: "http://www.mta.edu.vn",
+    },
+    faculty: {
+      stats: [
+        "Trên 80% giảng viên có trình độ sau đại học.",
+        "10 Giáo sư; 77 Phó Giáo sư.",
+        "359 Tiến sĩ; 397 Thạc sĩ.",
+      ],
+    },
+    majors: {
+      military: {
+        title: "Đào tạo Kỹ sư Quân sự",
+        list: [
+          "Công nghệ thông tin",
+          "An ninh an toàn thông tin",
+          "Điện tử viễn thông",
+          "Hàng không vũ trụ",
+          "Cơ điện tử",
+          "Kỹ thuật xây dựng",
+        ],
+      },
+      civilian: {
+        title: "Đào tạo hệ dân sự",
+        categories: [
+          {
+            name: "Khối Kỹ thuật",
+            items: [
+              "Công nghệ thông tin",
+              "Điều khiển và Tự động hóa",
+              "Điện - Điện tử",
+            ],
+          },
+        ],
+      },
+    },
+  },
+
+  hv_qy: {
+    id: "hv_qy",
+    fullName: "HỌC VIỆN QUÂN Y",
+    shortName: "Vietnam Military Medical University",
+    bannerImage: "/images/universities/hvqy/banner.jpg",
+    logo: "/images/universities/hvqy/logo.png",
+    gallery: [
+      "/images/universities/hvqy/gallery1.jpg",
+      "/images/universities/hvqy/gallery2.jpg",
+      "/images/universities/hvqy/gallery3.jpg",
+    ],
+    history: [
+      "10/3/1949 thành lập với tên Trường Quân y sĩ Việt Nam.",
+      "08/1966 thành lập Trường Đại học Quân y.",
+      "16/10/1981 trở thành Học viện Quân y.",
+      "2014 được công nhận là Đại học trọng điểm Quốc gia.",
+      "Thực hiện thành công ghép thận, gan, tim và đa tạng đầu tiên tại Việt Nam.",
+    ],
+    achievements: {
+      highlights: [
+        "Trung tâm ghép tạng hàng đầu Việt Nam.",
+        "Trung tâm thụ tinh nhân tạo uy tín.",
+      ],
+      medals: [
+        "Huân chương Sao Vàng (2008).",
+        "Huân chương Hồ Chí Minh (1999).",
+        "03 Danh hiệu Anh hùng LLVTND.",
+      ],
+    },
+    contact: {
+      address: "160 Phùng Hưng, Hà Đông, Hà Nội",
+      phone: "069 566204",
+      email: "tuyensinhhvqy@vmmu.edu.vn",
+      website: "http://www.hocvienquany.vn",
+    },
+    faculty: {
+      stats: [
+        "95% giảng viên có trình độ sau đại học.",
+        "07 Giáo sư; 106 Phó Giáo sư.",
+        "94 Tiến sĩ; 195 Thạc sĩ.",
+      ],
+    },
+    majors: {
+      military: {
+        title: "Đào tạo Quân y",
+        list: ["Bác sĩ đa khoa Quân y", "Dược sĩ đại học Quân sự"],
+      },
+      civilian: {
+        title: "Đào tạo hệ dân sự",
+        categories: [
+          {
+            name: "Y - Dược",
+            items: [
+              "Bác sĩ đa khoa",
+              "Dược sĩ đại học",
+              "Điều dưỡng (liên thông)",
+            ],
+          },
+        ],
+      },
+    },
+  },
+
+  hv_hc: {
+    id: "hv_hc",
+    fullName: "HỌC VIỆN HẬU CẦN",
+    shortName: "Logistics Academy",
+    bannerImage: "/images/universities/hvhc/banner.jpg",
+    logo: "/images/universities/hvhc/logo.png",
+    gallery: [
+      "/images/universities/hvhc/gallery1.jpg",
+      "/images/universities/hvhc/gallery2.jpg",
+      "/images/universities/hvhc/gallery3.jpg",
+    ],
+    history: [
+      "Tiền thân là Trường Huấn luyện cán bộ hậu cần (1951).",
+      "04/3/1980 thành lập Trường Sĩ quan Hậu cần.",
+      "16/3/1996 hợp nhất thành Học viện Hậu cần.",
+    ],
+    achievements: {
+      highlights: [
+        "Đơn vị Anh hùng LLVTND.",
+        "Đào tạo cán bộ hậu cần cấp chiến thuật, chiến dịch.",
+      ],
+      medals: [
+        "Huân chương Sao Vàng.",
+        "Huân chương Hồ Chí Minh.",
+        "03 Huân chương Quân công hạng Nhất.",
+      ],
+    },
+    contact: {
+      address: "Ngọc Thụy, Long Biên, Hà Nội",
+      phone: "069 577 681",
+      email: "tshvhcb1@gmail.com",
+      website: "http://www.hocvienhaucan.edu.vn",
+    },
+    faculty: {
+      stats: [
+        "70% có trình độ sau đại học.",
+        "02 Giáo sư; 27 Phó Giáo sư.",
+        "79 Tiến sĩ; 235 Thạc sĩ.",
+      ],
+    },
+    majors: {
+      military: {
+        title: "Đào tạo cán bộ hậu cần",
+        list: [
+          "Chỉ huy tham mưu hậu cần",
+          "Xăng dầu",
+          "Quân nhu",
+          "Vận tải",
+          "Tài chính",
+        ],
+      },
+      civilian: {
+        title: "Sau đại học",
+        categories: [
+          {
+            name: "Tài chính - Ngân hàng",
+            items: [
+              "Thạc sĩ Tài chính - Ngân hàng",
+              "Tiến sĩ Tài chính - Ngân hàng",
+            ],
+          },
+        ],
+      },
+    },
+  },
+
+  hv_khqs: {
+    id: "hv_khqs",
+    fullName: "HỌC VIỆN KHOA HỌC QUÂN SỰ",
+    shortName: "Military Science Academy",
+    bannerImage: "/images/universities/hvkhqs/banner.jpg",
+    logo: "/images/universities/hvkhqs/logo.png",
+    gallery: [
+      "/images/universities/hvkhqs/gallery1.jpg",
+      "/images/universities/hvkhqs/gallery2.jpg",
+      "/images/universities/hvkhqs/gallery3.jpg",
+    ],
+    history: [
+      "Thành lập 10/6/1957.",
+      "Đào tạo cán bộ quân sự trình độ đại học, thạc sĩ, tiến sĩ.",
+      "Là trung tâm đào tạo lớn của Bộ Quốc phòng.",
+    ],
+    achievements: {
+      highlights: [
+        "Anh hùng LLVTND (2011).",
+        "Đào tạo chuyên sâu Quan hệ quốc tế về Quốc phòng.",
+      ],
+      medals: [
+        "02 Huân chương Bảo vệ Tổ quốc hạng Ba.",
+        "02 Huân chương Chiến công hạng Nhất.",
+      ],
+    },
+    contact: {
+      address: "322 Lê Trọng Tấn, Hoàng Mai, Hà Nội",
+      phone: "0243 565 9449",
+      email: "hocvienkhqs@gmail.com",
+      website: "http://www.hvkhqs.edu.vn",
+    },
+    faculty: {
+      stats: [
+        "70% có trình độ sau đại học.",
+        "01 Giáo sư; 12 Phó Giáo sư.",
+        "25 Tiến sĩ; 165 Thạc sĩ.",
+      ],
+    },
+    majors: {
+      military: {
+        title: "Đào tạo sĩ quan cấp phân đội",
+        list: [
+          "Ngôn ngữ Anh",
+          "Ngôn ngữ Nga",
+          "Ngôn ngữ Trung",
+          "Trinh sát Kỹ thuật",
+          "Quan hệ Quốc tế về Quốc phòng",
+        ],
+      },
+      civilian: {
+        title: "Hệ dân sự",
+        categories: [
+          {
+            name: "Ngôn ngữ",
+            items: ["Ngôn ngữ Anh", "Ngôn ngữ Trung"],
+          },
+        ],
+      },
+    },
+  },
 };

@@ -1229,58 +1229,182 @@ const App: React.FC = () => {
 
             <div
               className="
-  bg-slate-900 text-white rounded-[3rem]
-  p-10 shadow-2xl relative overflow-hidden
-  flex flex-col
-  md:col-span-2
-"
+    bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950
+    text-slate-100
+    rounded-[3rem]
+    p-12
+    shadow-[0_0_60px_rgba(250,204,21,0.08)]
+    relative overflow-hidden
+    flex flex-col
+    md:col-span-2
+  "
             >
-              <div className="absolute top-0 right-0 w-64 h-64 bg-red-600/10 rounded-full blur-[100px] pointer-events-none"></div>
-              <h4 className="text-2xl font-black mb-10 flex items-center gap-3 uppercase tracking-tighter border-b border-white/10 pb-6">
-                <Shield className="text-yellow-400" /> Nguyên tắc vàng khi xét
-                tuyển
+              {/* Glow */}
+              <div className="absolute top-0 right-0 w-72 h-72 bg-yellow-400/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+              {/* TITLE CHÍNH - CHỈ 1 LẦN */}
+              <h4 className="text-3xl font-extrabold mb-14 flex items-center gap-3 uppercase tracking-tight border-b border-yellow-400/20 pb-6">
+                <Shield className="text-yellow-400 w-7 h-7" />
+                Nguyên tắc vàng khi xét tuyển
               </h4>
-              <div className="space-y-10">
-                <div className="flex gap-6">
-                  <div className="w-12 h-12 bg-yellow-400/20 text-yellow-400 rounded-2xl flex items-center justify-center shrink-0 font-black text-xl border border-yellow-400/30">
-                    1
+
+              <div className="space-y-16">
+                {/* ================= NGUYÊN TẮC CHUNG ================= */}
+                <div className="space-y-10">
+                  <div className="border-l-4 border-yellow-400 pl-6">
+                    <h5 className="text-yellow-400 text-xl uppercase tracking-widest mb-2 font-bold">
+                      Nguyên tắc chung
+                    </h5>
+                    <p className="text-slate-300 text-sm">
+                      Thực hiện theo đúng quy chế của Bộ GD&ĐT và Bộ Quốc phòng.
+                    </p>
                   </div>
-                  <div>
-                    <p className="font-black text-lg text-white leading-tight uppercase mb-1">
-                      Công khai - Minh bạch
-                    </p>
-                    <p className="text-sm text-slate-400 font-medium leading-relaxed">
-                      Xét điểm từ cao xuống thấp cho đến khi đủ chỉ tiêu. Không
-                      phân biệt tôn giáo, vùng miền.
-                    </p>
+
+                  <div className="space-y-8">
+                    {/* 1 */}
+                    <div className="flex gap-6 items-start">
+                      <div className="w-12 h-12 bg-yellow-400 text-slate-900 rounded-xl flex items-center justify-center font-bold shadow-lg shrink-0">
+                        1
+                      </div>
+                      <div>
+                        <p className="text-white text-lg font-semibold mb-2">
+                          Công khai – Minh bạch
+                        </p>
+                        <p className="text-slate-300 text-sm">
+                          Xét tuyển từ cao xuống thấp đến khi đủ chỉ tiêu.
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* 2 */}
+                    <div className="flex gap-6 items-start">
+                      <div className="w-12 h-12 bg-yellow-400 text-slate-900 rounded-xl flex items-center justify-center font-bold shadow-lg shrink-0">
+                        2
+                      </div>
+                      <div>
+                        <p className="text-white text-lg font-semibold mb-2">
+                          Xét tuyển đợt 1
+                        </p>
+                        <p className="text-slate-300 text-sm">
+                          Điểm trúng tuyển NV1 dựa trên tổng điểm 3 môn + ưu
+                          tiên. Không trúng tuyển NV1 sẽ được xét nguyện vọng
+                          tiếp theo ngoài Quân đội.
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* 3 */}
+                    <div className="flex gap-6 items-start">
+                      <div className="w-12 h-12 bg-yellow-400 text-slate-900 rounded-xl flex items-center justify-center font-bold shadow-lg shrink-0">
+                        3
+                      </div>
+                      <div>
+                        <p className="text-white text-lg font-semibold mb-2">
+                          Xét tuyển bổ sung
+                        </p>
+                        <p className="text-slate-300 text-sm">
+                          Thực hiện khi còn thiếu chỉ tiêu, bảo đảm đúng vùng
+                          miền và tiêu chuẩn sức khỏe.
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div className="flex gap-6">
-                  <div className="w-12 h-12 bg-yellow-400/20 text-yellow-400 rounded-2xl flex items-center justify-center shrink-0 font-black text-xl border border-yellow-400/30">
-                    2
-                  </div>
-                  <div>
-                    <p className="font-black text-lg text-white leading-tight uppercase mb-1">
-                      Xét Tiêu chí phụ
-                    </p>
-                    <p className="text-sm text-slate-400 font-medium leading-relaxed">
-                      Khi có nhiều thí sinh cùng mức điểm, hội đồng tuyển sinh
-                      sẽ xét đến điểm môn chính và các tiêu chí ưu tiên.
-                    </p>
+
+                {/* ================= TÍNH ĐIỂM ================= */}
+                <div className="bg-slate-800/60 rounded-2xl p-10 border border-yellow-400/20 backdrop-blur-md shadow-lg space-y-6">
+                  <h5 className="text-yellow-400 text-sm uppercase tracking-widest font-bold">
+                    Nguyên tắc tính điểm
+                  </h5>
+
+                  <p className="text-slate-200 text-sm">
+                    Điểm xét tuyển = Tổng điểm 3 môn (có thể nhân hệ số) + điểm
+                    ưu tiên. Làm tròn đến 2 chữ số thập phân và xét từ cao xuống
+                    thấp.
+                  </p>
+
+                  <div className="grid md:grid-cols-2 gap-4 text-sm text-slate-300">
+                    <p>• Văn – Sử – Địa: ưu tiên Văn → Sử → Địa.</p>
+                    <p>• Toán – Lý – Hóa/Anh: ưu tiên Toán → Lý → Hóa/Anh.</p>
+                    <p>• Học viện KHQS: Ngoại ngữ → Toán → Văn.</p>
+                    <p>• Học viện Quân y: Toán → Hóa → Lý/Sinh.</p>
+                    <p>• Sĩ quan Chính trị: Toán → Văn → Anh.</p>
                   </div>
                 </div>
-                <div className="flex gap-6">
-                  <div className="w-12 h-12 bg-yellow-400/20 text-yellow-400 rounded-2xl flex items-center justify-center shrink-0 font-black text-xl border border-yellow-400/30">
-                    3
+
+                {/* ================= ĐIỂM CHUẨN ================= */}
+                <div className="bg-slate-800/60 rounded-2xl p-10 border border-yellow-400/20 backdrop-blur-md shadow-lg space-y-6">
+                  <h5 className="text-yellow-400 text-sm uppercase tracking-widest font-bold">
+                    Điểm chuẩn tuyển sinh
+                  </h5>
+
+                  <div className="space-y-3 text-sm text-slate-300">
+                    <p>
+                      • Một điểm chuẩn chung giữa quân nhân và thanh niên ngoài
+                      Quân đội.
+                    </p>
+                    <p>• Xác định riêng theo Nam – Nữ (nếu có tuyển nữ).</p>
+                    <p>• Xác định riêng theo khu vực Bắc và Nam.</p>
                   </div>
-                  <div>
-                    <p className="font-black text-lg text-white leading-tight uppercase mb-1">
-                      Thang điểm bình đẳng
-                    </p>
-                    <p className="text-sm text-slate-400 font-medium leading-relaxed">
-                      Thí sinh là Quân nhân và Dân sự được xét tuyển bình đẳng
-                      trên cùng một thang điểm chuẩn quy định.
-                    </p>
+                </div>
+
+                {/* ================= QUY ĐỊNH RIÊNG ================= */}
+                <div className="bg-slate-800/60 rounded-2xl p-10 border border-yellow-400/20 backdrop-blur-md shadow-lg space-y-8">
+                  <h5 className="text-yellow-400 text-sm uppercase tracking-widest font-bold">
+                    Một số quy định riêng
+                  </h5>
+
+                  <div className="space-y-8 text-sm text-slate-300 leading-relaxed">
+                    {/* HỌC VIỆN KHQS */}
+                    <div className="space-y-3">
+                      <p className="text-white font-semibold">
+                        • Học viện Khoa học quân sự:
+                      </p>
+                      <div className="pl-5 space-y-2">
+                        <p>
+                          – Các ngành đào tạo ngoại ngữ: Thực hiện một điểm
+                          chuẩn chung cho cùng một đối tượng thí sinh nam hoặc
+                          nữ trong cả nước.
+                        </p>
+                        <p>
+                          – Thực hiện một điểm chuẩn chung giữa các tổ hợp xét
+                          tuyển:
+                        </p>
+                        <div className="pl-5 space-y-1">
+                          <p>+ A00 và A01 → ngành Trinh sát kỹ thuật.</p>
+                          <p>+ D01 và D02 → ngành Ngôn ngữ Nga.</p>
+                          <p>+ D01 và D04 → ngành Ngôn ngữ Trung Quốc.</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* HỌC VIỆN QUÂN Y */}
+                    <div className="space-y-3">
+                      <p className="text-white font-semibold">
+                        • Học viện Quân y:
+                      </p>
+                      <div className="pl-5 space-y-2">
+                        <p>
+                          Thực hiện một điểm chuẩn chung cho cùng một đối tượng
+                          thí sinh nam hoặc nữ theo từng khu vực tuyển sinh cho
+                          cả 2 tổ hợp B00 và A00 khi xét tuyển ngành Bác sĩ đa
+                          khoa.
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* SĨ QUAN KHÔNG QUÂN */}
+                    <div className="space-y-3">
+                      <p className="text-white font-semibold">
+                        • Trường Sĩ quan Không quân:
+                      </p>
+                      <div className="pl-5">
+                        <p>
+                          Thực hiện một điểm chuẩn xét tuyển chung vào đào tạo
+                          Phi công quân sự cho thí sinh trong cả nước.
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
