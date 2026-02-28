@@ -216,7 +216,7 @@ export const ADMISSION_PROCESS = [
   {
     step: 1,
     title: "Đăng ký & Nộp hồ sơ sơ tuyển",
-    time: "25/02/2026 - 15/04/2026",
+    time: "10/02/2026 - 15/04/2026",
     location: "Ban TSQS cấp xã (thanh niên) hoặc cấp trung đoàn (quân nhân)",
     content: [
       "Mỗi thí sinh làm 02 bộ hồ sơ riêng biệt: Hồ sơ sơ tuyển & Hồ sơ xét tuyển.",

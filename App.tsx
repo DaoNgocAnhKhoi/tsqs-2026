@@ -1231,8 +1231,8 @@ const App: React.FC = () => {
               className="
     bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950
     text-slate-100
-    rounded-[3rem]
-    p-12
+    rounded-2xl md:rounded-[3rem]
+    px-5 py-8 sm:px-8 sm:py-10 md:p-12
     shadow-[0_0_60px_rgba(250,204,21,0.08)]
     relative overflow-hidden
     flex flex-col
