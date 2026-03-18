@@ -336,15 +336,8 @@ export const EXAM_GROUPS: ExamGroup[] = [
       "SQ KTQS",
     ],
   },
-
   {
-    code: "A0T",
-    subjects: "Toán, Vật lý, Tin học",
-    target: ["HV Kỹ thuật QS", "HV Hậu cần"],
-  },
-
-  {
-    code: "X06",
+    code: "X06 (A0T)",
     subjects: "Toán, Vật lý, Tin học",
     target: ["HV Hậu cần"],
   },
