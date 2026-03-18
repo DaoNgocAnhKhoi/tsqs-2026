@@ -216,7 +216,7 @@ export const ADMISSION_PROCESS = [
   {
     step: 1,
     title: "Đăng ký & Nộp hồ sơ sơ tuyển",
-    time: "10/02/2026 - 15/04/2026",
+    time: "10/02/2026 - 21/04/2026",
     location: "Ban TSQS cấp xã (thanh niên) hoặc cấp trung đoàn (quân nhân)",
     content: [
       "Mỗi thí sinh làm 02 bộ hồ sơ riêng biệt: Hồ sơ sơ tuyển & Hồ sơ xét tuyển.",
@@ -231,7 +231,7 @@ export const ADMISSION_PROCESS = [
   {
     step: 2,
     title: "Khám sức khỏe sơ tuyển",
-    time: "Hoàn thành trước 15/04/2026",
+    time: "Hoàn thành trước 21/04/2026",
     location: "Hội đồng khám khu vực / Bệnh viện quân y",
     content: [
       "Tuyển thí sinh đạt Loại 1 hoặc Loại 2 theo Thông tư 105 & 106.",
